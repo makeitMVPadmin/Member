@@ -1,7 +1,7 @@
 
-# MakeItMVP Launch Academy Starter Repository
+# MakeItMVP Launch Academy Member Repository
 
-Welcome to the MakeItMVP Launch Academy Starter Repository! This repository is designed to provide new junior developers with a structured starting point for their assigned projects. It's built using React and Sass to help you get up and running quickly.
+Welcome to MakeItMVP Launch Academy's Member feature! This repository is designed to provide new junior developers with a structured starting point for their assigned projects. It's built using React and Sass to help you get up and running quickly.
 
 ## Table of Contents
 
