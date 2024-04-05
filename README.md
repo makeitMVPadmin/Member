@@ -4,6 +4,7 @@
 Welcome to Communiti's Member feature! As a Member Management Tool for Communiti, this repository focuses on member management with a unique integration of engagement tools, aiming to carve out its own niche in the market landscape.
 
 Tomas was here :o
+Danielle is here :D 
 
 ## Table of Contents
 
