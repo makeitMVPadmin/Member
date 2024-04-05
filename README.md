@@ -1,4 +1,3 @@
-
 # MakeItMVP Launch Academy Member Repository
 
 Welcome to Communiti's Member feature! As a Member Management Tool for Communiti, this repository focuses on member management with a unique integration of engagement tools, aiming to carve out its own niche in the market landscape.
@@ -22,12 +21,13 @@ To begin working on your project, follow these steps:
    ```bash
    git clone hgit@github.com:makeitMVPadmin/Member.git
    ```
+
 ````
 
 2. Change your working directory to the cloned repository:
 
    ```bash
-   cd LaunchAcademyStarter
+   cd Member
    ```
 
 3. Install the project dependencies:
@@ -92,3 +92,4 @@ This project is licensed under the [MIT License](LICENSE).
 ```
 
 ```
+````
