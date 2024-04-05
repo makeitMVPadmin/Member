@@ -19,27 +19,27 @@ To begin working on your project, follow these steps:
 
 1. Clone this repository to your local machine:
 
-   ```bash
+   ```
    git clone hgit@github.com:makeitMVPadmin/Member.git
    ```
 
-````
+
 
 2. Change your working directory to the cloned repository:
 
-   ```bash
+   ```
    cd Member
    ```
 
 3. Install the project dependencies:
 
-   ```bash
+   ```
    npm install
    ```
 
 4. Start the development server:
 
-   ```bash
+   ```
    npm start
    ```
 
@@ -93,4 +93,3 @@ This project is licensed under the [MIT License](LICENSE).
 ```
 
 ```
-````
