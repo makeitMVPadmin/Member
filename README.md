@@ -59,7 +59,7 @@ The project structure is organized as follows:
 │   ├── styles/
 │   │   ├── main.scss
 │   │   ├── ...
-│   ├── index.js
+│   ├── members.js
 ├── public/
 │   ├── index.html
 │   ├── ...
