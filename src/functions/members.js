@@ -14,10 +14,10 @@ async function getMembers() {
 }
 
 async function getUserById(id) {
-    const memberRef = doc(db, 'Users', id);
-    const memberSnapshot = await getDoc(memberRef);
-    doesMemberExist(memberSnapshot);
-    return memberSnapshot.data();
+    const userRef = doc(db, 'Users', id);
+    const userSnapshot = await getDoc(userRef);
+    doesMemberExist(userSnapshot);
+    return userSnapshot.data();
 }
 
 async function addMember(member) {
