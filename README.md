@@ -2,9 +2,6 @@
 
 Welcome to Communiti's Member feature! As a Member Management Tool for Communiti, this repository focuses on member management with a unique integration of engagement tools, aiming to carve out its own niche in the market landscape.
 
-Tomas was here :o
-Danielle is here :D 
-
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -37,6 +34,16 @@ To begin working on your project, follow these steps:
    npm install
    ```
 
+3. Setup connection to Firebase:
+
+   ```
+   1) Duplicate the ".env.sample" file in the root of your project and    rename the file to ".env"
+   2) Navigate to your desired firebase project.
+   3) Click on 'project settings' and scroll down to 'Your apps'. Select one of the apps, likely a web app.
+   4) Copy each of the values in the firebaseConfig object.
+   5) Paste each of the values from step 4 into the .env file you created in step 1.
+   ```
+
 4. Start the development server:
 
    ```
@@ -56,10 +63,11 @@ The project structure is organized as follows:
 │   ├── components/
 │   │   ├── App.js
 │   │   ├── ...
+│   ├── functions/
+│   │   ├── members.js
 │   ├── styles/
 │   │   ├── main.scss
 │   │   ├── ...
-│   ├── members.js
 ├── public/
 │   ├── index.html
 │   ├── ...
