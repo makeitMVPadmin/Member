@@ -13,8 +13,8 @@ async function getMembers() {
     return membersList;
 }
 
-async function getMemberById(id) {
-    const memberRef = doc(db, 'members', id);
+async function getUserById(id) {
+    const memberRef = doc(db, 'Users', id);
     const memberSnapshot = await getDoc(memberRef);
     doesMemberExist(memberSnapshot);
     return memberSnapshot.data();
@@ -45,5 +45,5 @@ async function deleteMember(id) {
     await deleteDoc(memberRef);
 }
 
-export { getMembers, getMemberById, addMember, updateMember, deleteMember };
+export { getMembers, getUserById, addMember, updateMember, deleteMember };
 
