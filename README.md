@@ -1,92 +1,139 @@
+<a name="Data Project"></a>
 
-# MakeItMVP Launch Academy Starter Repository
+# 📗 Table of Contents
 
-Welcome to the MakeItMVP Launch Academy Starter Repository! This repository is designed to provide new junior developers with a structured starting point for their assigned projects. It's built using React and Sass to help you get up and running quickly.
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+    - [Future Features](#future-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ](#faq)
+- [📝 License](#license)
 
-## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Technologies](#technologies)
-- [Contributing](#contributing)
-- [License](#license)
+# 📖 **HELLO-MICROVERSE PROJECT** <a name="about-project"></a>
 
-## Getting Started
+**Data Project. Jiachun Xiang** In this project, I used the tools like linter, HTML/CSS I learned from provided tutorial.
 
-To begin working on your project, follow these steps:
 
-1. Clone this repository to your local machine:
+## 🛠 Built With <a name="VS Code">VS Code</a>
 
-   ```bash
-   git clone https://github.com/MakeItMVP/LaunchAcademyStarter.git
-   ```
-````
+### Tech Stack <a name="VS Code"></a>
 
-2. Change your working directory to the cloned repository:
+GitHub/Git, VS Code, React, SCSS
 
-   ```bash
-   cd LaunchAcademyStarter
-   ```
+### Key Features <a name="key-features"></a>
 
-3. Install the project dependencies:
+- React
+- SCSS
 
-   ```bash
-   npm install
-   ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-4. Start the development server:
 
-   ```bash
-   npm start
-   ```
+### Future Features <a name="future-features"></a>
 
-5. Open your web browser and navigate to `http://localhost:3000` to see your project running.
+- Data Adding
 
-Now you're ready to start building your project using the provided structure!
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Project Structure
 
-The project structure is organized as follows:
+## 💻 Getting Started <a name="getting-started"></a>
 
-```
-├── src/
-│   ├── components/
-│   │   ├── App.js
-│   │   ├── ...
-│   ├── styles/
-│   │   ├── main.scss
-│   │   ├── ...
-│   ├── index.js
-├── public/
-│   ├── index.html
-│   ├── ...
-├── package.json
-├── README.md
-```
 
-- `src/`: Contains the main source code for your project, including React components and styles.
-- `public/`: Contains static assets and your project's HTML template.
-- `package.json`: Defines project dependencies and scripts.
+To get a local copy up and running, follow these steps below.
 
-Feel free to customize the project structure to fit your specific project requirements.
+### Prerequisites
 
-## Technologies
+In order to run this project you need:
 
-This starter repository uses the following technologies:
+Clone the repository using git, and open it with VS code.
 
-- React: A JavaScript library for building user interfaces.
-- Sass: A CSS extension language that adds features like variables, nesting, and more.
+So make sure you have VS code installed beforehead, you call install VS code through https://code.visualstudio.com/download.
 
-You can expand upon these technologies as needed for your project.
+### Setup
 
-## Contributing
+Clone this repository to your desired folder in your laptop:
 
-We welcome contributions from the community. If you have suggestions or improvements for this starter repository, please open an issue or create a pull request. For more information on how to contribute, check our [CONTRIBUTING.md](CONTRIBUTING.md) file.
+  cd "your-folder-name"
+  git clone git@github.com:
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
+### Usage
 
-```
+To open the project, use yout prefered explorer and open the index.html file. Or, you can right click the index.html file to open in the live server with the localhost.
 
-```
+
+### Deployment
+
+You can deploy this project using VS Code terminal with using related command.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## 👥 Author <a name="author"></a>
+
+
+👤 ** Jiachun Xiang **
+
+- GitHub: https://github.com/mpa-mxiang
+- LinkedIn: https://www.linkedin.com/in/jiachunlilyxiang
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome! 
+
+If you like to contribute, report issues, or request feature(s), please contact me through one of the above media link:)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project please star this project to show your support, thank you for your support!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to thank makeitMVP to provide this opportunity to allow us to work together and complete this awesome project.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## ❓ FAQ <a name="faq"></a>
+
+- Is it difficult?
+
+  - It is common difficult for the setup, but do not give up. Once you get it, you would feel great!
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+- Why SCSS?
+
+  - It is because
+  <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
