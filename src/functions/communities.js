@@ -19,4 +19,4 @@ async function getCommunityById(id) {
     return communitySnapshot.data();
 }
 
-export { getCommunities, getCommunityById, addMember, updateMember, deleteMember };
+export { getCommunities, getCommunityById };
