@@ -1,4 +1,3 @@
-
 # MakeItMVP Launch Academy Starter Repository
 
 Welcome to the MakeItMVP Launch Academy Starter Repository! This repository is designed to provide new junior developers with a structured starting point for their assigned projects. It's built using React and Sass to help you get up and running quickly.
@@ -20,6 +19,7 @@ To begin working on your project, follow these steps:
    ```bash
    git clone https://github.com/MakeItMVP/LaunchAcademyStarter.git
    ```
+
 ````
 
 2. Change your working directory to the cloned repository:
@@ -34,13 +34,23 @@ To begin working on your project, follow these steps:
    npm install
    ```
 
-4. Start the development server:
+4. Setup connection to Firebase:
+
+   ```bash
+   1. Duplicate the ".env.sample" file in the root of your project and    rename the file to ".env"
+   2. Navigate to your desired firebase project.
+   3. Click on 'project settings' and scroll down to 'Your apps'. Select one of the apps, likely a web app.
+   4. Copy each of the values in the firebaseConfig object.
+   5. Paste each of the values from step 4 into the .env file you created in step 1.
+   ```
+
+5. Start the development server:
 
    ```bash
    npm start
    ```
 
-5. Open your web browser and navigate to `http://localhost:3000` to see your project running.
+6. Open your web browser and navigate to `http://localhost:3000` to see your project running.
 
 Now you're ready to start building your project using the provided structure!
 
@@ -90,3 +100,4 @@ This project is licensed under the [MIT License](LICENSE).
 ```
 
 ```
+````
