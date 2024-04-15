@@ -13,11 +13,11 @@ async function getMembers() {
     return membersList;
 }
 
-async function getMemberById(id) {
-    const memberRef = doc(db, 'members', id);
-    const memberSnapshot = await getDoc(memberRef);
-    doesMemberExist(memberSnapshot);
-    return memberSnapshot.data();
+async function getUserById(id) {
+    const userRef = doc(db, 'Users', id);
+    const userSnapshot = await getDoc(userRef);
+    doesMemberExist(userSnapshot);
+    return userSnapshot.data();
 }
 
 async function addMember(member) {
@@ -45,5 +45,5 @@ async function deleteMember(id) {
     await deleteDoc(memberRef);
 }
 
-export { getMembers, getMemberById, addMember, updateMember, deleteMember };
+export { getMembers, getUserById, addMember, updateMember, deleteMember };
 
