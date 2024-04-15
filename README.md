@@ -1,6 +1,10 @@
+
+# MakeItMVP Launch Academy Starter Repository
+
 <a name="Data Project"></a>
 
 # 📗 Table of Contents
+
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
@@ -31,7 +35,14 @@
 
 ## 🛠 Built With <a name="VS Code">VS Code</a>
 
+   ```bash
+   git clone https://github.com/MakeItMVP/LaunchAcademyStarter.git
+   ```
+
+````
+
 ### Tech Stack <a name="VS Code"></a>
+
 
 GitHub/Git, VS Code, React, SCSS
 
@@ -43,7 +54,23 @@ GitHub/Git, VS Code, React, SCSS
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+4. Setup connection to Firebase:
+
+   ```bash
+   1. Duplicate the ".env.sample" file in the root of your project and    rename the file to ".env"
+   2. Navigate to your desired firebase project.
+   3. Click on 'project settings' and scroll down to 'Your apps'. Select one of the apps, likely a web app.
+   4. Copy each of the values in the firebaseConfig object.
+   5. Paste each of the values from step 4 into the .env file you created in step 1.
+   ```
+
+5. Start the development server:
+
+
 ### Future Features <a name="future-features"></a>
+
+
+6. Open your web browser and navigate to `http://localhost:3000` to see your project running.
 
 - Data Adding
 
@@ -74,6 +101,7 @@ Clone this repository to your desired folder in your laptop:
 ### Usage
 
 To open the project, use yout prefered explorer and open the index.html file. Or, you can right click the index.html file to open in the live server with the localhost.
+
 
 
 ### Deployment
@@ -137,3 +165,4 @@ I would like to thank makeitMVP to provide this opportunity to allow us to work 
 
 This project is [MIT](./LICENSE) licensed.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
