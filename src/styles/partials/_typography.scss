@@ -1,10 +1,11 @@
 @font-face {
     font-family: "Gilroy";
-    src: url("/public/Gilroy-ExtraBold.otf") format("opentype");
+    src: url("../../fonts/Gilroy-ExtraBold.otf") format("opentype");
     font-weight: 700;
 }
 
 @font-face {
     font-family: "Corben";
-    src: url('/public/Corben-Bold.ttf') format('truetype');    
+    src: url('../../fonts/Corben-Bold.ttf') format('truetype');
+    font-weight: 700;
 }
