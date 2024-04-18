@@ -22,7 +22,7 @@ export default function CommunityManager(){
                         : currentView === "viewNewsletters" ? (<PlaceHolderView />)
 
                         : (
-                            <div className="placeholder">PLACEHOLDER</div>
+                            <div className="placeholder">DEFAULT, for check error</div>
                         )
                     }
                 </section>

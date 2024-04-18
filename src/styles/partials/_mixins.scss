@@ -1,3 +1,7 @@
+
+// RESPONSIVE STYLING
+// Choose screen width range and replace @content
+// with the styling you wish to apply
 @mixin mobile-only {
     @media (max-width: 767px) {
       @content;
@@ -22,6 +26,9 @@
     }
 }
 
+//RESET STYLING
+// Overrites a selection of standard css properties
+// that are commonly replaced.
 @mixin blank-slate-styling {
     * {
         box-sizing: border-box;

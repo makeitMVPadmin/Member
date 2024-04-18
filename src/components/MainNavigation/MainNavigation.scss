@@ -1,1 +1,31 @@
 @use "../../styles/partials/global" as *;
+
+.main-nav{
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    top: 2.5px;
+    // z-index: -1;
+    
+
+    &__tab{
+        background-color: #0099FF;
+        border-radius: 4px 4px 0 0;
+        border-top: 2px solid #000;
+        border-right: 2px solid #000;
+        border-left: 2px solid #000;
+        border-bottom: 0px solid transparent;
+        min-height: 36px;
+        max-width: 128px;
+        width: 100%;
+        z-index: 0;
+
+        &.isActive{
+            background-color: #E1F0FB;
+            z-index: 1;
+        }
+    }
+}
