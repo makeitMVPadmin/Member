@@ -64,7 +64,7 @@ The project structure is organized as follows:
 │   │   ├── App.js
 │   │   ├── ...
 │   ├── functions/
-│   │   ├── members.js
+│   │   ├── users.js
 │   ├── styles/
 │   │   ├── main.scss
 │   │   ├── ...
@@ -83,10 +83,11 @@ Feel free to customize the project structure to fit your specific project requir
 
 ## Technologies
 
-This starter repository uses the following technologies:
+This repository uses the following technologies:
 
 - React: A JavaScript library for building user interfaces.
 - Sass: A CSS extension language that adds features like variables, nesting, and more.
+- Firebase: A platform developed by Google for creating mobile and web applications.
 
 You can expand upon these technologies as needed for your project.
 
