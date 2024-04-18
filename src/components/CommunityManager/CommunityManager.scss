@@ -1,0 +1,12 @@
+@use "../../styles/partials/global" as *;
+.community-manager{
+    display: flex;
+    flex-direction: column;
+    margin: 0 24px;
+
+    .view-container{
+        background-color: lightblue;
+        min-height: 400px;
+        
+    }
+}
