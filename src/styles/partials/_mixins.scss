@@ -1,0 +1,103 @@
+
+// RESPONSIVE STYLING
+// Choose screen width range and replace @content
+// with the styling you wish to apply
+@mixin mobile-only {
+    @media (max-width: 767px) {
+      @content;
+    }
+}
+
+@mixin tablet-only {
+    @media (min-width: 768px) and (max-width: 1279px) {
+      @content;
+    }
+}
+  
+@mixin tablet-plus {
+    @media (min-width: 768px) {
+      @content;
+    }
+}
+  
+@mixin desktop {
+    @media (min-width: 1280px) {
+      @content;
+    }
+}
+
+//RESET STYLING
+// Overrites a selection of standard css properties
+// that are commonly replaced.
+@mixin blank-slate-styling {
+    * {
+        box-sizing: border-box;
+    }
+  
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+  
+    a {
+      color: unset;
+      text-decoration: unset;
+      padding: 0;
+      margin: 0;
+    }
+  
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    img {
+      display: block;
+    }
+  
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    li {
+      margin: 0;
+      padding: 0;
+      font-weight: unset;
+      font-size: unset;
+    }
+  
+    textarea:focus,
+    input:focus {
+      outline: none;
+    }
+  
+    button {
+      outline: none;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  
+    fieldset {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    menu {
+      margin: 0;
+      padding: 0;
+    }
+}

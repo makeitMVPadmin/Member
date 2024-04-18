@@ -1,3 +1,6 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./typography" as *;
 * {
   margin: 0;
   padding: 0;
