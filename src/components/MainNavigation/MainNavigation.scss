@@ -8,7 +8,7 @@
     align-items: center;
     position: relative;
     top: 2.5px;
-    // z-index: -1;
+    
     
 
     &__tab{
@@ -22,6 +22,7 @@
         max-width: 128px;
         width: 100%;
         z-index: 0;
+        @extend .buttons-copy;
 
         &.isActive{
             background-color: #E1F0FB;

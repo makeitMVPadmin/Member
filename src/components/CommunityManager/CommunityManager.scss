@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     margin: 0 24px;
+    @extend .body-copy;
 
     .view-container{
         background-color: #E1F0FB;
