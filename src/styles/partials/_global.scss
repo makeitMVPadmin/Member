@@ -17,56 +17,56 @@ body {
 }
 
 .page-header {
-  font-size: 3rem;
+  font-size: 24px;
   line-height: 1.375rem;
   font-family: "Corben", Arial, sans-serif;
   font-weight: 700;
 
   @include tablet-plus {
-    font-size: 58px;
+    font-size: 33px;
     line-height: 1.5rem;
     font-family: "Corben", Arial, sans-serif;
     font-weight: 700;
   }
 }
 .subheader {
-  font-size: 1.6875rem;
+  font-size: 14px;
   line-height: 1.375rem;
   font-family: "Corben", Arial, sans-serif;
   font-weight: 700;
 
   @include tablet-plus {
-    font-size: 1.875rem;
+    font-size: 18px;
     line-height: 1.5rem;
     font-family: "Corben", Arial, sans-serif;
     font-weight: 700;
   }
 }
 
-.body {
-  font-size: 1.3125rem;
+.body-copy {
+  font-size: 14px;
   line-height: 1.375rem;
   font-family: "Gilroy", Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 700;
 
   @include tablet-plus {
-    font-size: 1.5625rem;
-    line-height: 1.5rem;
+    font-size: 16px;
+    line-height: 24px;
     font-family: "Gilroy", Arial, sans-serif;
-    font-weight: 400;
+    font-weight: 700;
   }
 }
 
-.buttons {
-  font-size: 20px;
+.buttons-copy {
+  font-size: 14px;
   line-height: 1.375rem;
   font-family: "Gilroy", Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 700;
 
   @include tablet-plus {
-    font-size: 27px;
+    font-size: 16px;
     line-height: 1.5rem;
     font-family: "Gilroy", Arial, sans-serif;
-    font-weight: 400;
+    font-weight: 700;
   }
 }
