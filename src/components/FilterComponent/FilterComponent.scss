@@ -1,0 +1,38 @@
+.filter-component {
+    display: flex;
+    flex-direction: column;
+    background: rgb(0, 0, 0);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: auto;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    .filter {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+  
+      label {
+        font-size: 0.9rem;
+        color: rgb(255, 255, 255);
+        margin-bottom: 5px;
+      }
+  
+      select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        color: rgb(255, 255, 255);
+        outline: none;
+        cursor: pointer;
+  
+        &:focus {
+          border-color: #80bdff;
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+      }
+    }
+  }
+  
