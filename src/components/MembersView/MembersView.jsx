@@ -1,46 +1,32 @@
 import './MembersView.scss';
 import { getUsers } from '../../functions/users';
 import { useEffect, useState } from 'react';
+import MembersList from '../MembersList/MembersList';
 
 
 export default function MembersView(){
 
-    // useState in parent component to store checked members
-    // selectMember function (for checkboxes)
-    // fetch members (import fetch function from members.js)
-    // Row styled component: map through members
-    // PAGINATION Logic: https://dev.to/canhamzacode/how-to-implement-pagination-with-reactjs-2b04
-    // render page numbers 
-    // function currentPage to parent component
-    // 
-
     const [users, setUsers] = useState([]);
+    const [membersSelected, setMembersSelected] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
         try {
             const fetchData = async ()=>{
                 const users = await getUsers();
                 setUsers(users)
-                console.log("users", users);
+                setLoading(false);
             }
             fetchData();
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            setLoading(false);
         }
     },[])
 
-
-    return(
-        <>
-            {/* labels bar
-            map over users*/}
-            {users.map((user)=>{
-                <>
-                <p>user.firstName</p>
-                <p>user.lastName</p>
-                <p>user.email</p>
-                </>
-            })}
-        </>
-    )
+return (
+    <>
+        {!loading && <MembersList users={users} membersSelected={membersSelected} setMembersSelected={setMembersSelected}/>}
+    </>
+)
 }

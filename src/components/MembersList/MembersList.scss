@@ -1,0 +1,76 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+
+.member-list__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    color: #505050;
+    margin: 0.5rem 1rem;
+}
+
+.member-card__background {
+    border-bottom: 1px solid #828282;
+    margin: 0.5rem 1rem;
+        :hover, :active {
+        background-color: #C8EAFF;
+    }
+    }
+
+.member-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    
+    &__userinfo-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__userinfo-subcontainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__avatar {
+        border-radius: 50%;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-right: 0.75rem;
+    }
+
+    &__email {
+        color: #505050;
+    }
+}
+
+.column {
+    min-width: 5rem;
+    padding: 0.5rem;
+
+    @include tablet-plus {
+        width: 18vw;
+        max-width: 11rem;
+    }
+
+    &--short {
+        width: 2rem;
+        padding: 0.5rem;
+    }
+
+    &--userinfo {
+        min-width: 15rem;
+    }
+
+    &--hidden {
+        @include mobile-only {
+            display: none;
+        }
+
+    }
+}
