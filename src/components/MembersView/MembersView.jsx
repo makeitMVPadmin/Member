@@ -15,6 +15,7 @@ export default function MembersView() {
         const fetchUsers = async () => {
             const users = await getUsers();
             setUsers(users);
+            setFilteredUsers(users);
         }
 
         fetchUsers();
@@ -30,6 +31,10 @@ export default function MembersView() {
             user.fullName?.includes(searchTerm) || user.email?.includes(searchTerm)) || user.industry?.includes(searchTerm)
         );
         setFilteredUsers(searchedUsers)
+    }
+
+    const resetFilteredUsers = () => {
+        setFilteredUsers(users);
     }
 
     return (

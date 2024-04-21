@@ -1,6 +1,7 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 @use "./typography" as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -29,6 +30,7 @@ body {
     font-weight: 700;
   }
 }
+
 .subheader {
   font-size: 14px;
   line-height: 1.375rem;
@@ -61,12 +63,66 @@ body {
   font-size: 14px;
   line-height: 1.375rem;
   font-family: "Gilroy", Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 800;
 
   @include tablet-plus {
     font-size: 16px;
     line-height: 1.5rem;
     font-family: "Gilroy", Arial, sans-serif;
-    font-weight: 700;
+    font-weight: 800;
+  }
+}
+
+input {
+  font-size: 14px;
+  line-height: 1.375rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
+  padding: 0.625rem 0.75rem;
+
+  @include tablet-plus {
+    font-size: 16px;
+    line-height: 1.5rem;
+    font-family: "Gilroy", Arial, sans-serif;
+    font-weight: 800;
+  }
+
+  &::placeholder {
+    color: #000;
+  }
+
+  &.search-bar {
+    background-color: $color-mvp-pale-blue;
+    border: 1px solid $color-mvp-black;
+    border-radius: 4px;
+    padding-left: 2.5rem;
+  }
+}
+
+.search-bar__container {
+  position: relative;
+  width: fit-content;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+
+button {
+  font-size: 14px;
+  line-height: 1.375rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
+
+  @include tablet-plus {
+    font-size: 16px;
+    line-height: 1.5rem;
+    font-family: "Gilroy", Arial, sans-serif;
+    font-weight: 800;
   }
 }

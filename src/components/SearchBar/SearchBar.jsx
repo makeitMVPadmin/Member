@@ -1,6 +1,5 @@
-// import searchIcon from '../../assets/search-icon.svg';
 import {debounce} from "../../utils/utils";
-
+import iconSearch from "../../assets/icons/icon_search.svg";
 
 export default function SearchBar({filterUsersBySearchTerm}) {
     const handleSearch = (e) => {
@@ -8,9 +7,9 @@ export default function SearchBar({filterUsersBySearchTerm}) {
     }
 
     return (
-        <div>
-            <img src={''} alt="search-icon" />
-            <input type="text" className="search-bar" onChange={handleSearch} />
+        <div className='search-bar__container'>
+            <img src={iconSearch} className="search-icon" alt="search-icon" />
+            <input type="text" className="search-bar" onChange={handleSearch} placeholder='Search'/>
         </div>
     )
 }
