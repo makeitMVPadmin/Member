@@ -21,7 +21,7 @@ export default function FilterSummary({filtersApplied, membersSelected, removeFi
     })
 
 
-    return(
+    return( 
         <section className="filter-summary">
             <div className="filter-summary__members">
             {members.length} Members
