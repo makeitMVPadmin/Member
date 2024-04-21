@@ -1,0 +1,86 @@
+.modal .overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    background: rgba(49, 49, 49, 0.8)
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #E1F0FB;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 2px solid #000;
+    width: 70%;
+    height: 70%
+}
+
+.close-modal {
+    font-family: Gilroy;
+    font-size: 18px;
+    text-decoration-line: underline;
+    background: #0954B0;
+    color: #FFFFFF;
+    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    padding: 8px 16px;
+}
+
+.to-sender {
+    display: flex;
+    flex-direction: row;
+    max-width: fit-content;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 23px;
+    border: 1px solid red;
+    font-family: Gilroy;
+    font-size: 20px;
+}
+
+.text-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.main-text {
+    border-radius: 8px;
+    border: 3px solid #000;
+    background: rgba(255, 255, 255, 0.50);
+    font-family: Gilroy;
+    padding: 16px;
+    width: 800px;
+    height: 300px;
+    margin-top: 23px;
+}
+
+.header-textbox {
+    font-family: Gilroy;
+    background: rgba(255, 255, 255, 0.50);
+    border-radius: 8px;
+    border: 3px solid #000;
+    width: 800px;
+    padding: 16px;
+}
