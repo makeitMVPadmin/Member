@@ -1,7 +1,58 @@
 @use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
 
 .filter-summary{
     border: solid 2px red;
+    display: flex;
+    
+    
+    // width: 360px;
+    padding: 16px;
+    gap: 8px;
 
+    &__members{
+        border: 2px solid black;
+        border-radius: 4px;
+        // width: auto;
+        height: max-content;
+        min-width: max-content;
+        padding: 4px 8px;
+        background-color: $color-mvp-cream;
+        @extend .body-copy;
+
+        &--p{
+            // width: auto;
+        }
+    }
+
+    .filters-list{
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+        align-items: center;
+        // flex-grow: 1;
+        gap: 8px;
+        
+        &__item{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2px;
+            justify-content: center;
+            width:auto;
+            padding: 4px 8px;
+            border: 2px solid black;
+            border-radius: 4px;
+            background-color: $color-mvp-cream;
+            
+            .item__text{
+                @extend .body-copy;
+            }
+            .item__image{
+                display: block;
+                width: 24px;
+            }
+        }
+    }
     
 }

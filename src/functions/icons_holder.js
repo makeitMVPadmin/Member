@@ -10,6 +10,7 @@ import IconTwitter from '../assets/icons/icon_twitter.svg'
 import IconUser from '../assets/icons/icon_user.svg'
 import IconVEllipses from '../assets/icons/icon_v_ellipses.svg'
 import IconWallet from '../assets/icons/icon_wallet.svg'
+import IconClose from '../assets/icons/icon_close.svg'
 
 function Icons() {
   const icons = {
@@ -24,7 +25,8 @@ function Icons() {
     IconTwitter: IconTwitter,
     IconUser: IconUser,
     IconVEllipses: IconVEllipses,
-    IconWallet: IconWallet,    
+    IconWallet: IconWallet,
+    IconClose: IconClose  
   };
 
   return icons;
