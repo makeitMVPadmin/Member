@@ -1,16 +1,34 @@
 import './MembersList.scss';
+import {useState} from "react";
+import Icons from '../../functions/icons_holder';
 
 
 export default function MembersList ({users, membersSelected, setMembersSelected}) {
-    // useState in parent component to store checked members
-    // membersSelected function (for checkboxes)
-    // Row styled component: map through members
-    // PAGINATION Logic: https://dev.to/canhamzacode/how-to-implement-pagination-with-reactjs-2b04
-    // render page numbers 
-    // function currentPage to parent component
 
-console.log(users[0]);
+const [selectAll, setSelectAll] = useState(false);
 
+// Function to handle the checkbox that selects all members
+const handleSelectAll = ()=>{
+    if (selectAll) {
+        setMembersSelected([])
+    } else {
+        const allMembers = users.map((user)=>{return user.email}) //gets emails from all members
+        setMembersSelected(allMembers) // puts all member emails into membersSelected array
+    }
+    setSelectAll(!selectAll) //toggles select all button
+}
+
+// Function to handle individual checkbox changes and update selected members
+// Currently set to add member emails 
+const handleCheckboxChange = (member) => {
+    if (membersSelected.includes(member)) {
+        setMembersSelected(membersSelected.filter(membersSelected => membersSelected !== member));
+    } else {
+        setMembersSelected([...membersSelected, member]);
+    }
+};
+
+// function to convert last login information into preferred date format (mm/dd/yy)
 const createDate = (timestampSeconds)=>{    
     const timestampMilliseconds = timestampSeconds * 1000;
     const lastLoginDate = new Date(timestampMilliseconds);
@@ -19,20 +37,30 @@ const createDate = (timestampSeconds)=>{
 
     return(
         <>
+        {/* Sample list to show selected members */}
+        <div>
+            <p>Selected members: {membersSelected.join(",")}</p>
+        </div>
+        <div className="member-list__count-wrapper">
+            <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
+            <p className="member-list__count body-copy">{membersSelected.length ? `Members (${membersSelected.length})`: `Members (${users.length})`}</p>
+        </div>
+        {/* Header */}
         <div >
             <ul className="member-list__header body-copy">
-                <li className="column--short"><input type="checkbox" /></li>
+                <li className="column--short"><input type="checkbox" onChange={handleSelectAll}/></li>
                 <li className="column column--userinfo">Member</li>
                 <li className="column">Role</li>
                 <li className="column column--hidden">Location</li>
                 <li className="column column--hidden">Last Active</li>
             </ul>
         </div>
+        {/* List out individual members */}
         <div>
             {users.map((user,index)=> index <10 &&
             (<div className="member-card__background" key={user.id}>
                 <ul className="member-card body-copy">
-                    <li className="member-card__checkbox column--short"><input type="checkbox"/></li>
+                    <li className="member-card__checkbox column--short"><input type="checkbox" checked={selectAll || membersSelected.includes(user.email)} onChange={()=>{handleCheckboxChange(user.email)}}/></li>
                     <li className="member-card__userinfo-container column column--userinfo">
                         <div className="member-card__userinfo-subcontainer">
                             <img src={user.profilePicture} alt={`${user.firstName}'s avatar`} className="member-card__avatar"/>

@@ -1,6 +1,5 @@
 import './MembersView.scss';
-import { useState } from 'react';
-import EmailModal from '../EmailModal/EmailModal';;
+import EmailModal from '../EmailModal/EmailModal';
 import { getUsers } from '../../functions/users';
 import { useEffect, useState } from 'react';
 import MembersList from '../MembersList/MembersList';

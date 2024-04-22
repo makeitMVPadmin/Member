@@ -1,15 +1,29 @@
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/mixins" as *;
 
-.member-list__header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style-type: none;
-    color: #505050;
-    margin: 0.5rem 1rem;
-}
+.member-list {
 
+    &__count-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__icon {
+        margin-right: 0.5rem;
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        list-style-type: none;
+        color: #505050;
+        margin: 0.5rem 1rem;
+    }
+}
 .member-card__background {
     border-bottom: 1px solid #828282;
     margin: 0.5rem 1rem;
