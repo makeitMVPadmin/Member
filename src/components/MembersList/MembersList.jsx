@@ -46,24 +46,24 @@ const createDate = (timestampSeconds)=>{
             <p className="member-list__count body-copy">{membersSelected.length ? `Members (${membersSelected.length})`: `Members (${users.length})`}</p>
         </div>
         {/* Header */}
-        <div >
-            <ul className="member-list__header body-copy">
-                <li className="column--short"><input type="checkbox" onChange={handleSelectAll}/></li>
-                <li className="column column--userinfo">Member</li>
-                <li className="column">Role</li>
-                <li className="column column--hidden">Location</li>
-                <li className="column column--hidden">Last Active</li>
+        <div className="body-copy">
+            <ul className="member-list__header">
+                <li className="column--short body-copy"><input type="checkbox" onChange={handleSelectAll}/></li>
+                <li className="column column--userinfo body-copy">Member</li>
+                <li className="column body-copy">Role</li>
+                <li className="column column--hidden body-copy">Location</li>
+                <li className="column column--hidden body-copy">Last Active</li>
             </ul>
         </div>
         {/* List out individual members */}
-        <div>
-            {users.map((user,index)=> index <10 &&
+        <div className="member-list__container">
+            {users.map((user,index)=> 
             (<div className="member-card__background" key={user.id}>
                 <ul className="member-card body-copy">
                     <li className="member-card__checkbox column--short"><input type="checkbox" checked={selectAll || membersSelected.includes(user.email)} onChange={()=>{handleCheckboxChange(user.email)}}/></li>
                     <li className="member-card__userinfo-container column column--userinfo">
                         <div className="member-card__userinfo-subcontainer">
-                            <img src={user.profilePicture} alt={`${user.firstName}'s avatar`} className="member-card__avatar"/>
+                            <img src={user.profilePicture ? user.profilePicture: Icons().IconUser} alt={`${user.firstName}'s avatar`} className="member-card__avatar"/>
                             <p className="member-card__name body-copy">{user.firstName} {user.lastName}</p>
                         </div>
                         <p className="member-card__email body-copy">{user.email}</p>
