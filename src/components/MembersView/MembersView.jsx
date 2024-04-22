@@ -5,11 +5,14 @@ import EmailModal from '../EmailModal/EmailModal';
 import SearchBar from '../SearchBar/SearchBar';
 
 import './MembersView.scss';
+import FilterSummary from '../FilterSummary/FilterSummary'
 
 export default function MembersView() {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([users]);
     const [onOpen, setOnOpen] = useState(false);
+    const dummyFilters = ["filterOne", "filterTwo", "filterThreeeeeeeeeeeeeeeeee", "filterOne", "filterTwo","filterOne", "filterTwo","filterOne", "filterTwo",];
+    const dummyMembers = ["memOne", "memTwo", "memThree", "memFour", "memFive", "memSix", "memSeven"];
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -39,6 +42,7 @@ export default function MembersView() {
 
     return (
         <>
+            <FilterSummary filtersApplied={dummyFilters} membersSelected={dummyMembers}/>
             <SearchBar filterUsersBySearchTerm={filterUsersBySearchTerm}/>
             <div className="members-view">
                 {filteredUsers.map(user => (
@@ -53,4 +57,5 @@ export default function MembersView() {
             <EmailModal onOpen={onOpen} handleModal={handleModalOpen}/>
         </>
     )
+    
 }
