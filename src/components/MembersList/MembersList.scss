@@ -3,6 +3,11 @@
 @use "../../styles/partials/variables" as *;
 
 .member-list {
+    &__top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
     &__count-wrapper {
         display: flex;

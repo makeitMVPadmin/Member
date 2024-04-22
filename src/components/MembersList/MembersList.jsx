@@ -37,14 +37,6 @@ const createDate = (timestampSeconds)=>{
 
     return(
         <>
-        {/* Sample list to show selected members */}
-        <div>
-            <p>Selected members: {membersSelected.join(",")}</p>
-        </div>
-        <div className="member-list__count-wrapper">
-            <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
-            <p className="member-list__count body-copy">{membersSelected.length ? `Members (${membersSelected.length})`: `Members (${users.length})`}</p>
-        </div>
         {/* Header */}
         <div className="body-copy">
             <ul className="member-list__header">
