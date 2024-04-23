@@ -34,7 +34,7 @@ export default function MembersView() {
 
     const filterUsersBySearchTerm = (searchTerm) => {
         const searchedUsers = users.filter(user => (
-            user.fullName?.includes(searchTerm) || user.email?.includes(searchTerm)) || user.discipline?.includes(searchTerm)
+            user.firstName?.includes(searchTerm) || user.lastName?.includes(searchTerm) || user.email?.includes(searchTerm)) || user.discipline?.includes(searchTerm)
         );
         setFilteredUsers(searchedUsers)
     }
