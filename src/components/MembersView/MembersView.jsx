@@ -1,16 +1,18 @@
+import './MembersView.scss';
 import {useEffect, useState} from "react";
 import {getUsers} from "../../functions/users";
-
 import EmailModal from '../EmailModal/EmailModal';
+import MembersList from '../MembersList/MembersList';
 import SearchBar from '../SearchBar/SearchBar';
-
-import './MembersView.scss';
-import FilterSummary from '../FilterSummary/FilterSummary'
+import FilterSummary from '../FilterSummary/FilterSummary';
+import Icons from '../../functions/icons_holder';
 
 export default function MembersView() {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([users]);
     const [onOpen, setOnOpen] = useState(false);
+    const [membersSelected, setMembersSelected] = useState([]);
+    const [loading, setLoading] = useState(true);
     const dummyFilters = ["filterOne", "filterTwo", "filterThreeeeeeeeeeeeeeeeee", "filterOne", "filterTwo","filterOne", "filterTwo","filterOne", "filterTwo",];
     const dummyMembers = ["memOne", "memTwo", "memThree", "memFour", "memFive", "memSix", "memSeven"];
 
@@ -19,6 +21,7 @@ export default function MembersView() {
             const users = await getUsers();
             setUsers(users);
             setFilteredUsers(users);
+            setLoading(false)
         }
 
         fetchUsers();
@@ -31,7 +34,7 @@ export default function MembersView() {
 
     const filterUsersBySearchTerm = (searchTerm) => {
         const searchedUsers = users.filter(user => (
-            user.fullName?.includes(searchTerm) || user.email?.includes(searchTerm)) || user.industry?.includes(searchTerm)
+            user.firstName?.includes(searchTerm) || user.lastName?.includes(searchTerm) || user.email?.includes(searchTerm)) || user.discipline?.includes(searchTerm)
         );
         setFilteredUsers(searchedUsers)
     }
@@ -43,16 +46,14 @@ export default function MembersView() {
     return (
         <>
             <FilterSummary filtersApplied={dummyFilters} membersSelected={dummyMembers}/>
+            <div className="member-list__top">
+                <div className="member-list__count-wrapper">
+                    <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
+                    <p className="member-list__count body-copy">{membersSelected.length ? `Members (${membersSelected.length})`: `Members (${users.length})`}</p>
+                </div>
             <SearchBar filterUsersBySearchTerm={filterUsersBySearchTerm}/>
-            <div className="members-view">
-                {filteredUsers.map(user => (
-                    <div key={user.id} className="member-card">
-                        <h3>{user.fullName}</h3>
-                        <p>{user.email}</p>
-                        <p>{user.industry}</p>
-                    </div>
-                ))}
             </div>
+            {!loading && <MembersList users={filteredUsers} membersSelected={membersSelected} setMembersSelected={setMembersSelected}/>}
             <button onClick={handleModalOpen}>Action</button>
             <EmailModal onOpen={onOpen} handleModal={handleModalOpen}/>
         </>
