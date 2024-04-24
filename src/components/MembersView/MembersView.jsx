@@ -14,7 +14,7 @@ export default function MembersView() {
     const [onOpen, setOnOpen] = useState(false);
     const [membersSelected, setMembersSelected] = useState([]);
     const [loading, setLoading] = useState(true);
-    const dummyFilters = ["filterOne", "filterTwo", "filterThreeeeeeeeeeeeeeeeee", "filterOne", "filterTwo","filterOne", "filterTwo","filterOne", "filterTwo",];
+    const dummyFilters = ["filterOne", "filterTwo", "filterThree", "filterOne", "filterTwo","filterOne", "filterTwo","filterOne", "filterTwo",];
     const dummyMembers = ["memOne", "memTwo", "memThree", "memFour", "memFive", "memSix", "memSeven"];
 
     useEffect(() => {

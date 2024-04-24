@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './FilterComponent.scss';
 
-import RoleFilter from '../MemberFilters/RoleFilter/RoleFilter';
-import LocationFilter from '../MemberFilters/LocationFilter/LocationFilter';
+import RoleFilter from '../FilterComponent/RoleFilter/RoleFilter';
+import LocationFilter from '../FilterComponent/LocationFilter/LocationFilter';
 
 const FilterComponent = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
