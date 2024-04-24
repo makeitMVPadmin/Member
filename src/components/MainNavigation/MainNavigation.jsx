@@ -16,7 +16,7 @@ export default function MainNavigation({currentView, setCurrentView}){
             <nav className="main-nav">
                 <button className="main-nav__tab" value="viewAnnouncements" onClick={(e) => handleTabClick(e.target)}>Announcements</button>
                 <button className="main-nav__tab" value="viewEvents" onClick={(e) => handleTabClick(e.target)}>Events</button>
-                <button className="main-nav__tab" value="viewMembers" onClick={(e) => handleTabClick(e.target)}>Members</button>
+                <button className="main-nav__tab isActive" value="viewMembers" onClick={(e) => handleTabClick(e.target)}>Members</button>
                 <button className="main-nav__tab" value="viewNewsletters" onClick={(e) => handleTabClick(e.target)}>Newsletters</button>
             </nav>
         </>
