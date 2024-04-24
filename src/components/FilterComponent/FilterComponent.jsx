@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FilterComponent.scss';
 
 import RoleFilter from '../FilterComponent/RoleFilter/RoleFilter';
-import LocationFilter from '../FilterComponent/LocationFilter/LocationFilter';
+//import LocationFilter from '../FilterComponent/LocationFilter/LocationFilter';
 
 const FilterComponent = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -20,7 +20,6 @@ const FilterComponent = () => {
       {!isCollapsed && (
         <div>
           { <RoleFilter /> }
-          { <LocationFilter /> }
           {/* <IndustryFilter onChange={handleIndustryChange} selectedOptions={selectedIndustry} /> */}
         </div>
       )}

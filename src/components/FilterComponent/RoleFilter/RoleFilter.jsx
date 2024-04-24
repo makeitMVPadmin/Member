@@ -4,7 +4,7 @@ const RoleFilter = ({ onChange }) => {
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [isCollapsed, setIsCollapsed] = useState(true);
 
-  const roles = ['UX Designer', 'Software Engineer', 'Product Manager', 'Data Scientist', 'All', 'Other'];
+  const roles = ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'All', 'Other'];
 
 
   const toggleCollapse = () => {
