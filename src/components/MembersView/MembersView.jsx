@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import FilterComponent from '../FilterComponent/FilterComponent'
-import './MembersView.scss'
-=======
 import './MembersView.scss';
 import {useEffect, useState} from "react";
 import {getUsers} from "../../functions/users";
@@ -9,8 +5,8 @@ import EmailModal from '../EmailModal/EmailModal';
 import MembersList from '../MembersList/MembersList';
 import SearchBar from '../SearchBar/SearchBar';
 import FilterSummary from '../FilterSummary/FilterSummary';
+import FilterComponent from '../FilterComponent/FilterComponent';
 import Icons from '../../functions/icons_holder';
->>>>>>> ed217d5341de01b4983ef82c8e6d7589f372b4b8
 
 export default function MembersView() {
     const [users, setUsers] = useState([]);
@@ -50,13 +46,10 @@ export default function MembersView() {
 
     return (
         <>
-<<<<<<< HEAD
-            Hello from MembersView!
-            Put components here
-
-            <FilterComponent />
-=======
             <FilterSummary filtersApplied={dummyFilters} membersSelected={dummyMembers}/>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <FilterComponent />
+            <div style={{ marginLeft: '20px', flex: 1 }}>
             <div className="member-list__top">
                 <div className="member-list__count-wrapper">
                     <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
@@ -66,8 +59,9 @@ export default function MembersView() {
             </div>
             {!loading && <MembersList users={filteredUsers} membersSelected={membersSelected} setMembersSelected={setMembersSelected}/>}
             <button onClick={handleModalOpen}>Action</button>
+            </div>
+            </div>
             <EmailModal onOpen={onOpen} handleModal={handleModalOpen}/>
->>>>>>> ed217d5341de01b4983ef82c8e6d7589f372b4b8
         </>
     )
     
