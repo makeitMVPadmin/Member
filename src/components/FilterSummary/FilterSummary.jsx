@@ -2,7 +2,7 @@ import './FilterSummary.scss'
 import { useState, useEffect } from 'react'
 import Icons from '../../functions/icons_holder'
 
-export default function FilterSummary({filtersApplied, membersSelected, removeFilterFunction}){
+export default function FilterSummary({filtersApplied, membersSelected}){
     const [filters, setFilters] = useState([])
     const [members, setMembers] = useState([])
 
@@ -15,6 +15,7 @@ export default function FilterSummary({filtersApplied, membersSelected, removeFi
     }, [membersSelected])
 
 
+    //not needed anymore
     const handleCloseClick = ((target)=>{
         // removeFilterFunction()
         console.log("remove filter func")
@@ -36,10 +37,6 @@ export default function FilterSummary({filtersApplied, membersSelected, removeFi
                         </li>                        
                     ))}
                 </ul>
-            
-            
-            
-            
         </section>
     )
 }
