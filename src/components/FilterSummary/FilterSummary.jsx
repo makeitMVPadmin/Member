@@ -32,9 +32,8 @@ export default function FilterSummary({filtersApplied, membersSelected, removeFi
                     {filters.map((filter)=>(
                         <li className="filters-list__item" key={filter.index}>
                             <p className="item__text">{filter}</p>
-                            <img src={Icons().IconClose} alt="close" className="item__image" onClick={handleCloseClick}/>
-                        </li>
-                        
+                            {/* <img src={Icons().IconClose} alt="close" className="item__image" onClick={handleCloseClick}/> */}
+                        </li>                        
                     ))}
                 </ul>
             

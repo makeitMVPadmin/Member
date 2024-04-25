@@ -2,12 +2,12 @@
 @use "../../styles/partials/variables" as *;
 
 .filter-summary{
-    border: solid 2px red;
+    // border: solid 2px red;
     display: flex;
     
     
     // width: 360px;
-    padding: 16px;
+    // padding: 16px;
     gap: 8px;
 
     &__members{
