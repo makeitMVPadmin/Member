@@ -16,9 +16,46 @@
     .email-modal{
         background-color: $color-mvp-cream;
         padding: 24px;
-        &__send{
-
+        z-index: 2;
+        max-width: 568px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        
+        &__title{
+            @extend .subheader;
         }
+        .send-info{
+            display: flex;
+
+            &__email-header{
+                flex-shrink: 1;
+            }
+            // <FilterSummary /> goes here in the JSX
+            &__close-button{
+                flex-shrink: 1;
+                min-width: 64px;
+            }
+        }
+
+        .text-area{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            &__subject-field{
+                border: 1px solid black;
+                border-radius: 4px;
+            }
+            &__message-field{
+                border: 1px solid black;
+                border-radius: 4px;
+                min-height: 128px;
+            }
+        }
+
+
     }
 }
 // .overlay {

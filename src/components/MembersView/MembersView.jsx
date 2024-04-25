@@ -13,8 +13,8 @@ export default function MembersView() {
     const [onOpen, setOnOpen] = useState(false);
     const [membersSelected, setMembersSelected] = useState([]);
     const [loading, setLoading] = useState(true);
-    const dummyFilters = ["filterOne", "filterTwo", "filterThreeeeeeeeeeeeeeeeee", "filterOne", "filterTwo","filterOne", "filterTwo","filterOne", "filterTwo",];
-    const dummyMembers = ["memOne", "memTwo", "memThree", "memFour", "memFive", "memSix", "memSeven"];
+    const dummyFilters = ["filterOne", "filterTwo", "filterOne", "filterTwo",];
+    // const dummyMembers = ["memOne", "memTwo", "memThree", "memFour", "memFive", "memSix", "memSeven"];
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -44,8 +44,7 @@ export default function MembersView() {
     }
 
     return (
-        <>
-            <FilterSummary filtersApplied={dummyFilters} membersSelected={dummyMembers}/>
+        <>            
             <div className="member-list__top">
                 <div className="member-list__count-wrapper">
                     <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
@@ -55,7 +54,8 @@ export default function MembersView() {
             </div>
             {!loading && <MembersList users={filteredUsers} membersSelected={membersSelected} setMembersSelected={setMembersSelected}/>}
             <button onClick={handleModalOpen}>Action</button>
-            <EmailModal onOpen={onOpen} handleModal={handleModalOpen}/>
+            
+            <EmailModal onOpen={onOpen} handleModal={handleModalOpen} filtersApplied={dummyFilters} membersSelected={membersSelected}/>
         </>
     )
     
