@@ -2,7 +2,7 @@ import './FilterSummary.scss'
 import { useState, useEffect } from 'react'
 import Icons from '../../functions/icons_holder'
 
-export default function FilterSummary({filtersApplied, membersSelected, removeFilterFunction}){
+export default function FilterSummary({filtersApplied, membersSelected}){
     const [filters, setFilters] = useState([])
     const [members, setMembers] = useState([])
 
@@ -13,13 +13,6 @@ export default function FilterSummary({filtersApplied, membersSelected, removeFi
     useEffect(()=>{
         setMembers(membersSelected)
     }, [membersSelected])
-
-
-    const handleCloseClick = ((target)=>{
-        // removeFilterFunction()
-        console.log("remove filter func")
-    })
-
 
     return( 
         <section className="filter-summary">
@@ -32,15 +25,10 @@ export default function FilterSummary({filtersApplied, membersSelected, removeFi
                     {filters.map((filter)=>(
                         <li className="filters-list__item" key={filter.index}>
                             <p className="item__text">{filter}</p>
-                            <img src={Icons().IconClose} alt="close" className="item__image" onClick={handleCloseClick}/>
-                        </li>
-                        
+                            {/* <img src={Icons().IconClose} alt="close" className="item__image" onClick={handleCloseClick}/> */}
+                        </li>                        
                     ))}
                 </ul>
-            
-            
-            
-            
         </section>
     )
 }
