@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 export default function EmailModal({onOpen, handleModal, notify, filtersApplied, membersSelected}) {
     
     const [error, setError] = useState(false);
-    // setError(false)
 
     const [formData, setFormData] = useState({
         subject: '',
@@ -51,9 +50,7 @@ export default function EmailModal({onOpen, handleModal, notify, filtersApplied,
         else {
             setError(true)
         }
-    }
-
-    
+    }    
 
     return (
         <div className="overlay">

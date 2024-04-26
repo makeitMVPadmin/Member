@@ -4,8 +4,7 @@ import {getUsers} from "../../functions/users";
 import EmailModal from '../EmailModal/EmailModal';
 import MembersList from '../MembersList/MembersList';
 import SearchBar from '../SearchBar/SearchBar';
-import FilterSummary from '../FilterSummary/FilterSummary';
-import Icons from '../../functions/icons_holder';
+ import Icons from '../../functions/icons_holder';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -16,7 +15,6 @@ export default function MembersView() {
     const [membersSelected, setMembersSelected] = useState([]);
     const [loading, setLoading] = useState(true);
     const dummyFilters = ["filterOne", "filterTwo", "filterOne", "filterTwo",];
-    // const dummyMembers = ["memOne", "memTwo", "memThree", "memFour", "memFive", "memSix", "memSeven"];
 
     const notify = () => toast("Sent!")
 

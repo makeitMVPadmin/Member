@@ -2,12 +2,7 @@
 @use "../../styles/partials/variables" as *;
 
 .filter-summary{
-    // border: solid 2px red;
     display: flex;
-    
-    
-    // width: 360px;
-    // padding: 16px;
     gap: 8px;
 
     &__members{
@@ -21,7 +16,6 @@
         @extend .body-copy;
 
         &--p{
-            // width: auto;
         }
     }
 
@@ -30,7 +24,6 @@
         list-style: none;
         flex-wrap: wrap;
         align-items: center;
-        // flex-grow: 1;
         gap: 8px;
         
         &__item{
@@ -47,8 +40,8 @@
             
             .item__text{
                 @extend .body-copy;
-                // font-size: 12px;
             }
+            
             .item__image{
                 display: block;
                 width: 24px;

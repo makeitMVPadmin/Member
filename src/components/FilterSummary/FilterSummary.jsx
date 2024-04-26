@@ -14,14 +14,6 @@ export default function FilterSummary({filtersApplied, membersSelected}){
         setMembers(membersSelected)
     }, [membersSelected])
 
-
-    //not needed anymore
-    const handleCloseClick = ((target)=>{
-        // removeFilterFunction()
-        console.log("remove filter func")
-    })
-
-
     return( 
         <section className="filter-summary">
             <div className="filter-summary__members">
