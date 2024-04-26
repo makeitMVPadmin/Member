@@ -6,6 +6,8 @@ import MembersList from '../MembersList/MembersList';
 import SearchBar from '../SearchBar/SearchBar';
 import FilterSummary from '../FilterSummary/FilterSummary';
 import Icons from '../../functions/icons_holder';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function MembersView() {
     const [users, setUsers] = useState([]);
@@ -15,6 +17,8 @@ export default function MembersView() {
     const [loading, setLoading] = useState(true);
     const dummyFilters = ["filterOne", "filterTwo", "filterOne", "filterTwo",];
     // const dummyMembers = ["memOne", "memTwo", "memThree", "memFour", "memFive", "memSix", "memSeven"];
+
+    const notify = () => toast("Sent!")
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -44,7 +48,12 @@ export default function MembersView() {
     }
 
     return (
-        <>            
+        <>       
+            <ToastContainer 
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar
+            />
             <div className="member-list__top">
                 <div className="member-list__count-wrapper">
                     <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
@@ -55,7 +64,7 @@ export default function MembersView() {
             {!loading && <MembersList users={filteredUsers} membersSelected={membersSelected} setMembersSelected={setMembersSelected}/>}
             <button onClick={handleModalOpen}>Action</button>
             
-            <EmailModal onOpen={onOpen} handleModal={handleModalOpen} filtersApplied={dummyFilters} membersSelected={membersSelected}/>
+            <EmailModal onOpen={onOpen} handleModal={handleModalOpen} notify={notify} filtersApplied={dummyFilters} membersSelected={membersSelected}/>
         </>
     )
     
