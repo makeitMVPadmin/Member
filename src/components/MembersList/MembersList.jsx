@@ -35,6 +35,7 @@ const createDate = (timestampSeconds)=>{
     return lastLoginDate.toLocaleDateString();
 }
 
+
     return(
         <>
         {/* Header */}
@@ -60,8 +61,8 @@ const createDate = (timestampSeconds)=>{
                         </div>
                         <p className="member-card__email body-copy">{user.email}</p>
                     </li>
-                    <li className="member-card__role body-copy column">{user.discipline}</li>
-                    <li className="member-card__location body-copy column column--hidden">{user.location}</li>
+                    <li className="member-card__role body-copy column capitalize-first">{user.discipline}</li>
+                    <li className="member-card__location body-copy column column--hidden capitalize-first">{user.locationCity}</li>
                     <li className="member-card__last-active body-copy column column--hidden">{createDate(user.lastLogin.seconds)}</li>
                 </ul>
             </div>
