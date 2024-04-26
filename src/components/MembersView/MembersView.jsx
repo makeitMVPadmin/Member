@@ -32,9 +32,18 @@ export default function MembersView() {
         console.log("Modal has been clicked: ", onOpen)
     }
 
-    const filterUsersBySearchTerm = (searchTerm) => {
+    // Function to filter user array by search term 
+    const filterUsersBySearchTerm = (searchInput) => {
+        const searchTerm = searchInput.toLowerCase().trim()
         const searchedUsers = users.filter(user => (
-            user.firstName?.includes(searchTerm) || user.lastName?.includes(searchTerm) || user.email?.includes(searchTerm)) || user.discipline?.includes(searchTerm)
+            user.firstName?.toLowerCase().includes(searchTerm) 
+            || user.lastName?.toLowerCase().includes(searchTerm) 
+            || user.email?.toLowerCase().includes(searchTerm) 
+            || user.discipline?.toLowerCase().includes(searchTerm) 
+            || user.locationCity?.toLowerCase().includes(searchTerm)
+            || user.locationCountry?.toLowerCase().includes(searchTerm)
+            || user.locationState?.toLowerCase().includes(searchTerm)
+            )
         );
         setFilteredUsers(searchedUsers)
     }
@@ -45,7 +54,7 @@ export default function MembersView() {
 
     return (
         <>
-            <FilterSummary filtersApplied={dummyFilters} membersSelected={dummyMembers}/>
+            {/* <FilterSummary filtersApplied={dummyFilters} membersSelected={dummyMembers}/> */}
             <div className="member-list__top">
                 <div className="member-list__count-wrapper">
                     <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>

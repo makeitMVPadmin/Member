@@ -56,7 +56,7 @@ const createDate = (timestampSeconds)=>{
                     <li className="member-card__checkbox column--short"><input type="checkbox" checked={selectAll || membersSelected.includes(user.email)} onChange={()=>{handleCheckboxChange(user.email)}}/></li>
                     <li className="member-card__userinfo-container column column--userinfo">
                         <div className="member-card__userinfo-subcontainer">
-                            <img src={user.profilePicture ? user.profilePicture: Icons().IconUser} alt={`${user.firstName}'s avatar`} className="member-card__avatar"/>
+                            <img src={user.profilePicture ? user.profilePicture : Icons().IconUser} alt={`${user.firstName}'s avatar`} className="member-card__avatar"/>
                             <p className="member-card__name body-copy">{user.firstName} {user.lastName}</p>
                         </div>
                         <p className="member-card__email body-copy">{user.email}</p>
