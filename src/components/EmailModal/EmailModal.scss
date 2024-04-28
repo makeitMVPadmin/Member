@@ -37,6 +37,7 @@
                 flex-shrink: 1;
                 padding-top: 4px;
                 @extend .body-copy;
+                font-size: 24px;
             }
             // <FilterSummary /> goes here in the JSX
             &__close-button{
@@ -48,6 +49,7 @@
                 border: 2px solid black;
                 background-color: $color-mvp-dark-blue;
                 letter-spacing: 0.5px;
+                max-height: 34px;
 
                 &:hover{
                     cursor: pointer;
@@ -111,6 +113,7 @@
                     display: flex;
                     justify-content: center;
                     gap: 8px;
+                    max-height: 48px;
 
                     &:hover{
                         cursor: pointer;
