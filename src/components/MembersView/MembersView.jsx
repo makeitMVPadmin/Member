@@ -14,7 +14,6 @@ export default function MembersView() {
     const [onOpen, setOnOpen] = useState(false);
     const [membersSelected, setMembersSelected] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedRoles, setSelectedRoles] = useState([]);
     const dummyFilters = ["filterOne", "filterTwo", "filterThree", "filterOne", "filterTwo", "filterOne", "filterTwo", "filterOne", "filterTwo",];
     const dummyMembers = ["memOne", "memTwo", "memThree", "memFour", "memFive", "memSix", "memSeven"];
 
@@ -25,20 +24,17 @@ export default function MembersView() {
             setFilteredUsers(fetchedUsers);
             setLoading(false);
         };
-
         fetchUsers();
     }, []);
 
-    useEffect(() => {
-        const filterUsersByRole = () => {
-            if (selectedRoles.length === 0) {
-                setFilteredUsers(users);
-            } else {
-                setFilteredUsers(users.filter(user => selectedRoles.includes(user.discipline)));
-            }
-        };
-        filterUsersByRole();
-    }, [selectedRoles, users]);
+    
+    const filterUsersByRole = (selectedRoles) => {
+        if (selectedRoles.length === 0) {
+            setFilteredUsers(users);
+        } else {
+            setFilteredUsers(users.filter(user => selectedRoles.includes(user.discipline)));
+        }
+    };
 
     const filterUsersBySearchTerm = (searchTerm) => {
         const searchedUsers = users.filter(user => (
@@ -60,7 +56,7 @@ export default function MembersView() {
         <>
             <FilterSummary filtersApplied={dummyFilters} membersSelected={dummyMembers} />
             <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <FilterComponent setSelectedRoles={setSelectedRoles} />
+                <FilterComponent filterUsersByRole={filterUsersByRole} />
                 <div style={{ marginLeft: '20px', flex: 1 }}>
                     <div className="member-list__top">
                         <div className="member-list__count-wrapper">

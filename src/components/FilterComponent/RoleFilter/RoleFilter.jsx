@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 
-const RoleFilter = ({ }) => {
+const RoleFilter = ({ filterUsersByRole }) => {
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [isCollapsed, setIsCollapsed] = useState(true);
 
@@ -11,6 +12,10 @@ const RoleFilter = ({ }) => {
     setIsCollapsed(!isCollapsed);
   };
 
+  useEffect(() => {
+    filterUsersByRole(selectedRoles);
+  }, [selectedRoles])
+
   const toggleRole = (role) => {
     let updatedRoles;
     if (selectedRoles.includes(role)) {
@@ -18,7 +23,6 @@ const RoleFilter = ({ }) => {
     } else {
       updatedRoles = [...selectedRoles, role];
     }
-
     setSelectedRoles(updatedRoles);
   };
 
