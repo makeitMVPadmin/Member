@@ -48,6 +48,10 @@
                 border: 2px solid black;
                 background-color: $color-mvp-dark-blue;
                 letter-spacing: 0.5px;
+
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
 
@@ -107,6 +111,10 @@
                     display: flex;
                     justify-content: center;
                     gap: 8px;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
 
             }
