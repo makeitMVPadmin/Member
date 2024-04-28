@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const RoleFilter = ({ onChange }) => {
+const RoleFilter = ({ }) => {
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [isCollapsed, setIsCollapsed] = useState(true);
 
-  const roles = ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'All', 'Other'];
+  const roles = ['software development', 'data analytics', 'solution architect', 'web design', 'database administration', 'data engineering', 'all', 'other'];
 
 
   const toggleCollapse = () => {
@@ -12,25 +12,14 @@ const RoleFilter = ({ onChange }) => {
   };
 
   const toggleRole = (role) => {
-    let newSelectedRoles = [];
-
-    if (role === 'All') {
-      newSelectedRoles = selectedRoles.includes('All') ? [] : [...roles];
+    let updatedRoles;
+    if (selectedRoles.includes(role)) {
+      updatedRoles = selectedRoles.filter(r => r !== role);
     } else {
-      if (selectedRoles.includes(role)) {
-        newSelectedRoles = selectedRoles.filter(selectedRole => selectedRole !== role);
-      } else {
-        newSelectedRoles = [...selectedRoles, role];
-      }
-
-      if (newSelectedRoles.length < roles.length - 1) {
-        newSelectedRoles = newSelectedRoles.filter(selectedRole => selectedRole !== 'All');
-      }
+      updatedRoles = [...selectedRoles, role];
     }
 
-    setSelectedRoles(newSelectedRoles);
-
-    onChange && onChange(newSelectedRoles);
+    setSelectedRoles(updatedRoles);
   };
 
   return (

@@ -4,10 +4,10 @@ import './FilterComponent.scss';
 import RoleFilter from '../FilterComponent/RoleFilter/RoleFilter';
 //import LocationFilter from '../FilterComponent/LocationFilter/LocationFilter';
 
-const FilterComponent = () => {
+const FilterComponent = ({ setSelectedRoles }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
-  <RoleFilter onChange={(selectedRoles) => console.log(selectedRoles)} />
+  //<RoleFilter onChange={(selectedRoles) => console.log(selectedRoles)} />
 
 
   const toggleCollapse = () => {
@@ -19,8 +19,7 @@ const FilterComponent = () => {
       <h2 onClick={toggleCollapse}>Filters</h2>
       {!isCollapsed && (
         <div>
-          { <RoleFilter /> }
-          {/* <IndustryFilter onChange={handleIndustryChange} selectedOptions={selectedIndustry} /> */}
+          {<RoleFilter setSelectedRoles={setSelectedRoles} />}
         </div>
       )}
     </div>
