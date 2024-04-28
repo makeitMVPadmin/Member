@@ -16,6 +16,7 @@ const RoleFilter = ({ filterUsersByRole }) => {
     filterUsersByRole(selectedRoles);
   }, [selectedRoles])
 
+  // can capitalize roles for UI and add .toLowerCase() to all 'role', but boxes don't show check
   const toggleRole = (role) => {
     let updatedRoles;
     if (selectedRoles.includes(role)) {

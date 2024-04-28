@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import './FilterComponent.scss';
 
-import RoleFilter from '../FilterComponent/RoleFilter/RoleFilter';
-//import LocationFilter from '../FilterComponent/LocationFilter/LocationFilter';
+import RoleFilter from './MemberFilters/RoleFilter';
 
 const FilterComponent = ({ filterUsersByRole }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
-
-  //<RoleFilter onChange={(selectedRoles) => console.log(selectedRoles)} />
-
 
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
