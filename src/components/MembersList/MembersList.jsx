@@ -35,6 +35,7 @@ const createDate = (timestampSeconds)=>{
     return lastLoginDate.toLocaleDateString();
 }
 
+
     return(
         <>
         {/* Header */}
@@ -55,13 +56,15 @@ const createDate = (timestampSeconds)=>{
                     <li className="member-card__checkbox column--short"><input type="checkbox" checked={selectAll || membersSelected.includes(user.email)} onChange={()=>{handleCheckboxChange(user.email)}}/></li>
                     <li className="member-card__userinfo-container column column--userinfo">
                         <div className="member-card__userinfo-subcontainer">
-                            <img src={user.profilePicture ? user.profilePicture: Icons().IconUser} alt={`${user.firstName}'s avatar`} className="member-card__avatar"/>
+                            {user.profilePicture ? 
+                            <img src={user.profilePicture} alt={`${user.firstName}'s avatar`} className="member-card__avatar"/> : 
+                            <img src={Icons().IconUser} alt={`${user.firstName}'s avatar`} className="member-card__avatar member-card__avatar--default"/>}
                             <p className="member-card__name body-copy">{user.firstName} {user.lastName}</p>
                         </div>
                         <p className="member-card__email body-copy">{user.email}</p>
                     </li>
-                    <li className="member-card__role body-copy column">{user.discipline}</li>
-                    <li className="member-card__location body-copy column column--hidden">{user.location}</li>
+                    <li className="member-card__role body-copy column capitalize-first">{user.discipline}</li>
+                    <li className="member-card__location body-copy column column--hidden capitalize-first">{user.locationCity}</li>
                     <li className="member-card__last-active body-copy column column--hidden">{createDate(user.lastLogin.seconds)}</li>
                 </ul>
             </div>
