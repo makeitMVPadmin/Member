@@ -110,10 +110,12 @@
         width: 2rem;
         height: 2rem;
         margin-right: 0.75rem;
+
+        &--default {
         background-color: $color-mvp-white;
         object-position: 0 0.5rem;
         object-fit: fill;
-        filter: opacity(0.5);
+        filter: opacity(0.5)}
     }
 
     &__email {
