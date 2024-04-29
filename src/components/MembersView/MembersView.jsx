@@ -5,7 +5,8 @@ import EmailModal from '../EmailModal/EmailModal';
 import MembersList from '../MembersList/MembersList';
 import SearchBar from '../SearchBar/SearchBar';
 import FilterComponent from '../FilterComponent/FilterComponent';
- import Icons from '../../functions/icons_holder';
+import FilterSummary from '../FilterSummary/FilterSummary';
+import Icons from '../../functions/icons_holder';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -61,12 +62,6 @@ export default function MembersView() {
                 autoClose={3000}
                 hideProgressBar
             />
-            <div className="member-list__top">
-                <div className="member-list__count-wrapper">
-                    <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
-                    <p className="member-list__count body-copy">{membersSelected.length ? `Members (${membersSelected.length})`: `Members (${users.length})`}</p>
-            </div>
-            <FilterSummary filtersApplied={dummyFilters} membersSelected={dummyMembers} />
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <FilterComponent filterUsersByRole={filterUsersByRole} />
                 <div style={{ marginLeft: '20px', flex: 1 }}>
@@ -80,10 +75,7 @@ export default function MembersView() {
                     {!loading && <MembersList users={filteredUsers} membersSelected={membersSelected} setMembersSelected={setMembersSelected} />}
                     <button onClick={handleModalOpen}>Action</button>
                 </div>
-            </div>
-            {!loading && <MembersList users={filteredUsers} membersSelected={membersSelected} setMembersSelected={setMembersSelected}/>}
-            <button onClick={handleModalOpen}>Action</button>
-            
+            </div>            
             <EmailModal onOpen={onOpen} handleModal={handleModalOpen} notify={notify} filtersApplied={dummyFilters} membersSelected={membersSelected}/>
         </>
     )
