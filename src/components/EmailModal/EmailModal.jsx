@@ -30,12 +30,15 @@ export default function EmailModal({onOpen, handleModal, notify, filtersApplied,
             ...formData,
             [name]: value
         })
+        if (formData.subject !== '' && formData.message !== ''){
+            setError(false);
+        }
     }
 
     const handleSubmit = (e) =>{
         e.preventDefault();
         
-        if (formData.subject != '' && formData.message != ''){
+        if (formData.subject !== '' && formData.message !== ''){
             console.log('form submitted: ', formData)
             setFormData({
                 subject: '',
