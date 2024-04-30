@@ -27,19 +27,21 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
         items: ['Development', 'Design', 'Data', 'Management', 'Other']
     },];
 
-    return (<div className={`filter-component`}>
+    return (
+        <div className={`filter-component`}>
             <details>
                 <summary>
                     <h2>Filters</h2>
                 </summary>
                 <div>
-                    {filters.map((filter, index) => (<Filter
-                            key={index}
-                            filterUsers={filterUsers}
-                            filterIcon={filter.icon}
-                            filterTitle={filter.title}
-                            filterItems={filter.items}
-                        />))}
+                    {filters.map((filter, index) => (
+                        <Filter key={index}
+                                filterUsers={filterUsers}
+                                filterIcon={filter.icon}
+                                filterTitle={filter.title}
+                                filterItems={filter.items}
+                        />
+                    ))}
                 </div>
             </details>
         </div>);
