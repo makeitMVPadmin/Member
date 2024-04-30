@@ -1,91 +1,100 @@
 import './MembersView.scss';
-import { useEffect, useState } from "react";
-import { getUsers } from "../../functions/users";
+import {useEffect, useState} from "react";
+import {getUsers} from "../../functions/users";
 import EmailModal from '../EmailModal/EmailModal';
 import MembersList from '../MembersList/MembersList';
 import SearchBar from '../SearchBar/SearchBar';
-import FilterComponent from '../FilterComponent/FilterComponent';
+import FilterSidebar from '../FilterComponent/FilterSidebar';
 import FilterSummary from '../FilterSummary/FilterSummary';
 import Icons from '../../functions/icons_holder';
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function MembersView() {
     const [users, setUsers] = useState([]);
-    const [filteredUsers, setFilteredUsers] = useState([]);
-    const [onOpen, setOnOpen] = useState(false);
-    const [membersSelected, setMembersSelected] = useState([]);
     const [loading, setLoading] = useState(true);
-    const dummyFilters = ["filterOne", "filterTwo", "filterOne", "filterTwo",];
+    // useEffect(() => {
+    //     const fetchUsers = async () => {
+    //         const fetchedUsers = await getUsers();
+    //         setUsers(fetchedUsers);
+    //         setFilteredUsers(fetchedUsers);
+    //         setSearchedUsers(fetchedUsers);
+    //         setLoading(false);
+    //     };
+    //     fetchUsers();
+    // }, []);
 
-    const notify = () => toast("Sent!")
-
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const fetchedUsers = await getUsers();
-            setUsers(fetchedUsers);
-            setFilteredUsers(fetchedUsers);
-            setLoading(false);
-        };
-        fetchUsers();
-    }, []);
-
-    
-    const filterUsersByRole = (selectedRoles) => {
-        if (selectedRoles.length === 0) {
-            setFilteredUsers(users);
-        } else {
-            setFilteredUsers(users.filter(user => selectedRoles.includes(user.discipline)));
+    const [filteredUsers, setFilteredUsers] = useState([]);
+    const filterUsers = (selectedFilters) => {
+        if (!selectedFilters.length) {
+            return setFilteredUsers(users);
         }
+
+        setFilteredUsers(users.filter(user => {
+            for (let i = 0; i < selectedFilters.length; i++) {
+                if (selectedFilters[i] === 'Active' && user.lastActive >= new Date().getDay() - 30) return true;
+                if (selectedFilters[i] === 'Inactive' && user.lastActive < new Date().getDay() - 30) return true;
+                if (selectedFilters[i] === 'Today' && user.birthday === new Date().getDay()) return true;
+                if (selectedFilters[i] === 'This Week' && user.birthday >= new Date().getDay() && user.birthday <= new Date().getDay() + 7) return true;
+                if (selectedFilters[i] === 'This Month' && user.birthday >= new Date().getDay() && user.birthday <= new Date().getDay() + 30) return true;
+                if (selectedFilters[i] === user.role) return true;
+                if (selectedFilters[i] === user.location) return true;
+                if (selectedFilters[i] === user.interest) return true;
+            }
+            return false;
+        }));
     };
-
-    // Function to filter user array by search term 
-    const filterUsersBySearchTerm = (searchInput) => {
-        const searchTerm = searchInput.toLowerCase().trim()
-        const searchedUsers = users.filter(user => (
-            user.firstName?.toLowerCase().includes(searchTerm) 
-            || user.lastName?.toLowerCase().includes(searchTerm) 
-            || user.email?.toLowerCase().includes(searchTerm) 
-            || user.discipline?.toLowerCase().includes(searchTerm) 
-            || user.locationCity?.toLowerCase().includes(searchTerm)
-            || user.locationCountry?.toLowerCase().includes(searchTerm)
-            || user.locationState?.toLowerCase().includes(searchTerm)
-            )
-        );
-        setFilteredUsers(searchedUsers)
-    }
-
-    const handleModalOpen = () => {
-        setOnOpen(prevState => !prevState);
-        console.log("Modal has been clicked: ", onOpen)
-    }
-
     const resetFilteredUsers = () => {
         setFilteredUsers(users);
     }
 
+    const [searchedUsers, setSearchedUsers] = useState([]);
+    // Function to filter user array by search term
+    const searchForUsers = (searchInput) => {
+        const searchTerm = searchInput.toLowerCase().trim()
+        if (!searchTerm) return setSearchedUsers(filteredUsers);
+
+        const searchedUsers = filteredUsers.filter(user => (
+                user.firstName?.toLowerCase().includes(searchTerm)
+                || user.lastName?.toLowerCase().includes(searchTerm)
+                || user.email?.toLowerCase().includes(searchTerm)
+            )
+        );
+        setSearchedUsers(searchedUsers)
+    }
+
+    const [membersSelected, setMembersSelected] = useState([]);
+    const [onOpen, setOnOpen] = useState(false);
+    const handleModalOpen = () => {
+        setOnOpen(prevState => !prevState);
+    }
+    const notify = () => toast("Sent!")
+    const dummyFilters = ["filterOne", "filterTwo", "filterOne", "filterTwo",];
+
     return (
-        <>       
-            <ToastContainer 
+        <>
+            <ToastContainer
                 position="top-center"
                 autoClose={3000}
                 hideProgressBar
             />
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <FilterComponent filterUsersByRole={filterUsersByRole} />
-                <div style={{ marginLeft: '20px', flex: 1 }}>
+            <div style={{display: 'flex', flexDirection: 'row'}}>
+                <FilterSidebar filterUsers={filterUsers} resetFilteredUsers={resetFilteredUsers}/>
+                <div style={{marginLeft: '20px', flex: 1}}>
                     <div className="member-list__top">
                         <div className="member-list__count-wrapper">
                             <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
                             <p className="member-list__count body-copy">{membersSelected.length ? `Members (${membersSelected.length})` : `Members (${users.length})`}</p>
                         </div>
-                        <SearchBar filterUsersBySearchTerm={filterUsersBySearchTerm} />
+                        <SearchBar searchForUsers={searchForUsers}/>
                     </div>
-                    {!loading && <MembersList users={filteredUsers} membersSelected={membersSelected} setMembersSelected={setMembersSelected} />}
+                    {!loading && <MembersList users={searchedUsers} membersSelected={membersSelected}
+                                              setMembersSelected={setMembersSelected}/>}
                     <button onClick={handleModalOpen}>Action</button>
                 </div>
-            </div>            
-            <EmailModal onOpen={onOpen} handleModal={handleModalOpen} notify={notify} filtersApplied={dummyFilters} membersSelected={membersSelected}/>
+            </div>
+            <EmailModal onOpen={onOpen} handleModal={handleModalOpen} notify={notify} filtersApplied={dummyFilters}
+                        membersSelected={membersSelected}/>
         </>
     )
 

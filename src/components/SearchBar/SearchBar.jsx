@@ -1,9 +1,9 @@
 import {debounce} from "../../utils/utils";
 import iconSearch from "../../assets/icons/icon_search.svg";
 
-export default function SearchBar({filterUsersBySearchTerm}) {
+export default function SearchBar({searchForUsers}) {
     const handleSearch = (e) => {
-        debounce(filterUsersBySearchTerm(e.target.value));
+        debounce(searchForUsers(e.target.value));
     }
 
     return (
