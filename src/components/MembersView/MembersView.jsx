@@ -4,10 +4,10 @@ import {getUsers} from "../../functions/users";
 import EmailModal from '../EmailModal/EmailModal';
 import MembersList from '../MembersList/MembersList';
 import SearchBar from '../SearchBar/SearchBar';
-import FilterSidebar from '../FilterComponent/FilterSidebar';
+import FilterSidebar from '../FilterSidebar/FilterSidebar';
 import FilterSummary from '../FilterSummary/FilterSummary';
 import Icons from '../../functions/icons_holder';
-import {ToastContainer, toast} from 'react-toastify';
+import {ToastContainer, toast, Bounce} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function MembersView() {
@@ -49,9 +49,9 @@ export default function MembersView() {
     }
 
     const [searchedUsers, setSearchedUsers] = useState([]);
-    // Function to filter user array by search term
     const searchForUsers = (searchInput) => {
         const searchTerm = searchInput.toLowerCase().trim()
+
         if (!searchTerm) return setSearchedUsers(filteredUsers);
 
         const searchedUsers = filteredUsers.filter(user => (
@@ -68,7 +68,17 @@ export default function MembersView() {
     const handleModalOpen = () => {
         setOnOpen(prevState => !prevState);
     }
-    const notify = () => toast("Sent!")
+    const notify = () => toast.success(`Your message has been successfully sent to ${membersSelected.length} members!`, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+    });
     const dummyFilters = ["filterOne", "filterTwo", "filterOne", "filterTwo",];
 
     return (
@@ -90,7 +100,7 @@ export default function MembersView() {
                     </div>
                     {!loading && <MembersList users={searchedUsers} membersSelected={membersSelected}
                                               setMembersSelected={setMembersSelected}/>}
-                    <button onClick={handleModalOpen}>Action</button>
+                    <button class="action-button" onClick={handleModalOpen}>+ Action</button>
                 </div>
             </div>
             <EmailModal onOpen={onOpen} handleModal={handleModalOpen} notify={notify} filtersApplied={dummyFilters}
