@@ -30,7 +30,7 @@ export default function EmailModal({onOpen, handleModal, notify, filtersApplied,
             ...formData,
             [name]: value
         })
-        if (formData.subject !=- '' && formData.message !== ''){
+        if (formData.subject !== '' && formData.message !== ''){
             setError(false);
         }
     }
