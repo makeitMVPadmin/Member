@@ -85,11 +85,10 @@ Feel free to customize the project structure to fit your specific project requir
 
 This repository uses the following technologies:
 
-- React: A JavaScript library for building user interfaces.
-- Sass: A CSS extension language that adds features like variables, nesting, and more.
+- React: A JavaScript framework for building user interfaces.
+- Sass: A CSS extension language.
 - Firebase: A platform developed by Google for creating mobile and web applications.
-
-You can expand upon these technologies as needed for your project.
+- React Toastify: A small toast library for React.
 
 ## Contributing
 
