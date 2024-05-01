@@ -1,8 +1,6 @@
 import {useState, useEffect} from 'react';
 
-export default function Filter({filterUsers, filterIcon, filterTitle, filterItems}) {
-    const [selectedFilters, setSelectedFilters] = useState([])
-
+export default function Filter({filterUsers, filterIcon, filterTitle, filterItems, setSelectedFilters, selectedFilters}) {
     useEffect(() => {
         filterUsers(selectedFilters)
     }, [selectedFilters])

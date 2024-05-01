@@ -1,3 +1,5 @@
+import {useState} from "react";
+
 import './FilterSidebar.scss';
 
 import Filter from "../Filter/Filter";
@@ -9,6 +11,8 @@ import birthdayFilterIcon from '../../assets/icons/icon_filter_birthday.svg';
 import interestFilterIcon from '../../assets/icons/icon_filter_interest.svg';
 
 const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
+    const [selectedFilters, setSelectedFilters] = useState([])
+
     const filters = [{
         title: 'Role',
         icon: `${roleFilterIcon}`,
@@ -40,6 +44,8 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
                                 filterIcon={filter.icon}
                                 filterTitle={filter.title}
                                 filterItems={filter.items}
+                                setSelectedFilters={setSelectedFilters}
+                                selectedFilters={selectedFilters}
                         />
                     ))}
                 </div>

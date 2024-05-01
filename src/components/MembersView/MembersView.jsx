@@ -13,12 +13,41 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function MembersView() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        const mockNames = [
+            'John Doe', 'Jane Doe', 'Alice Doe', 'Bob Doe', 'Charlie Doe', 'David Doe', 'Eve Doe', 'Frank Doe', 'Grace Doe', 'Heidi Doe', 'Ivy Doe', 'Jack Doe', 'Karl Doe', 'Liam Doe', 'Mia Doe', 'Nina Doe', 'Oscar Doe', 'Pam Doe', 'Quinn Doe', 'Ruth Doe', 'Sam Doe', 'Tina Doe', 'Uma Doe', 'Vic Doe', 'Will Doe', 'Xena Doe', 'Yara Doe', 'Zara Doe'
+        ];
+        const mockRoles = ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'Data Engineering', 'Other'];
+        const mockLocations = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
+        const mockInterests = ['Development', 'Design', 'Data', 'Management', 'Other'];
+        const mockUsers = [];
+
+        const randomDate = () => {
+            return new Date().setDate(new Date().getDate() - Math.floor(Math.random() * 365));
+        }
+        for (let i = 0; i < 500; i++) {
+            mockUsers.push({
+                id: i,
+                firstName: mockNames[Math.floor(Math.random() * mockNames.length)].split(' ')[0],
+                lastName: mockNames[Math.floor(Math.random() * mockNames.length)].split(' ')[1],
+                email: `${mockNames[Math.floor(Math.random() * mockNames.length)].split(' ')[0].toLowerCase()}${Math.floor(Math.random() * 1000)}@example.com`,
+                discipline: mockRoles[Math.floor(Math.random() * mockRoles.length)],
+                locationCity: mockLocations[Math.floor(Math.random() * mockLocations.length)],
+                interest: mockInterests[Math.floor(Math.random() * mockInterests.length)],
+                lastActive: randomDate(),
+                birthday: randomDate(),
+            });
+        }
+        setUsers(mockUsers);
+        setFilteredUsers(mockUsers);
+        setLoading(false);
+    }, []);
+
     // useEffect(() => {
     //     const fetchUsers = async () => {
     //         const fetchedUsers = await getUsers();
     //         setUsers(fetchedUsers);
     //         setFilteredUsers(fetchedUsers);
-    //         setSearchedUsers(fetchedUsers);
     //         setLoading(false);
     //     };
     //     fetchUsers();
@@ -37,8 +66,8 @@ export default function MembersView() {
                 if (selectedFilters[i] === 'Today' && user.birthday === new Date().getDay()) return true;
                 if (selectedFilters[i] === 'This Week' && user.birthday >= new Date().getDay() && user.birthday <= new Date().getDay() + 7) return true;
                 if (selectedFilters[i] === 'This Month' && user.birthday >= new Date().getDay() && user.birthday <= new Date().getDay() + 30) return true;
-                if (selectedFilters[i] === user.role) return true;
-                if (selectedFilters[i] === user.location) return true;
+                if (selectedFilters[i] === user.discipline) return true;
+                if (selectedFilters[i] === user.locationCity) return true;
                 if (selectedFilters[i] === user.interest) return true;
             }
             return false;
@@ -47,12 +76,8 @@ export default function MembersView() {
     const resetFilteredUsers = () => {
         setFilteredUsers(users);
     }
-
-    const [searchedUsers, setSearchedUsers] = useState([]);
     const searchForUsers = (searchInput) => {
         const searchTerm = searchInput.toLowerCase().trim()
-
-        if (!searchTerm) return setSearchedUsers(filteredUsers);
 
         const searchedUsers = filteredUsers.filter(user => (
                 user.firstName?.toLowerCase().includes(searchTerm)
@@ -60,7 +85,7 @@ export default function MembersView() {
                 || user.email?.toLowerCase().includes(searchTerm)
             )
         );
-        setSearchedUsers(searchedUsers)
+        setFilteredUsers(searchedUsers)
     }
 
     const [membersSelected, setMembersSelected] = useState([]);
@@ -98,9 +123,9 @@ export default function MembersView() {
                         </div>
                         <SearchBar searchForUsers={searchForUsers}/>
                     </div>
-                    {!loading && <MembersList users={searchedUsers} membersSelected={membersSelected}
+                    {!loading && <MembersList users={filteredUsers} membersSelected={membersSelected}
                                               setMembersSelected={setMembersSelected}/>}
-                    <button class="action-button" onClick={handleModalOpen}>+ Action</button>
+                    <button className="action-button" onClick={handleModalOpen}>+ Action</button>
                 </div>
             </div>
             <EmailModal onOpen={onOpen} handleModal={handleModalOpen} notify={notify} filtersApplied={dummyFilters}
