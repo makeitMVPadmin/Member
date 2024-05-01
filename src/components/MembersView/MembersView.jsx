@@ -14,6 +14,7 @@ export default function MembersView() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
+        const numOfMockedUsers = 500;
         const mockNames = [
             'John Doe', 'Jane Doe', 'Alice Doe', 'Bob Doe', 'Charlie Doe', 'David Doe', 'Eve Doe', 'Frank Doe', 'Grace Doe', 'Heidi Doe', 'Ivy Doe', 'Jack Doe', 'Karl Doe', 'Liam Doe', 'Mia Doe', 'Nina Doe', 'Oscar Doe', 'Pam Doe', 'Quinn Doe', 'Ruth Doe', 'Sam Doe', 'Tina Doe', 'Uma Doe', 'Vic Doe', 'Will Doe', 'Xena Doe', 'Yara Doe', 'Zara Doe'
         ];
@@ -25,7 +26,7 @@ export default function MembersView() {
         const randomDate = () => {
             return new Date().setDate(new Date().getDate() - Math.floor(Math.random() * 365));
         }
-        for (let i = 0; i < 500; i++) {
+        for (let i = 0; i < numOfMockedUsers; i++) {
             mockUsers.push({
                 id: i,
                 firstName: mockNames[Math.floor(Math.random() * mockNames.length)].split(' ')[0],
