@@ -13,19 +13,21 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function MembersView() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        const numOfMockedUsers = 500;
-        const mockNames = [
-            'John Doe', 'Jane Doe', 'Alice Doe', 'Bob Doe', 'Charlie Doe', 'David Doe', 'Eve Doe', 'Frank Doe', 'Grace Doe', 'Heidi Doe', 'Ivy Doe', 'Jack Doe', 'Karl Doe', 'Liam Doe', 'Mia Doe', 'Nina Doe', 'Oscar Doe', 'Pam Doe', 'Quinn Doe', 'Ruth Doe', 'Sam Doe', 'Tina Doe', 'Uma Doe', 'Vic Doe', 'Will Doe', 'Xena Doe', 'Yara Doe', 'Zara Doe'
-        ];
-        const mockRoles = ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'Data Engineering', 'Other'];
-        const mockLocations = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
-        const mockInterests = ['Development', 'Design', 'Data', 'Management', 'Other'];
-        const mockUsers = [];
 
-        const randomDate = () => {
-            return new Date().setDate(new Date().getDate() - Math.floor(Math.random() * 365));
-        }
+    // START OF MOCK USERS FUNCTIONALITY
+    const numOfMockedUsers = 500;
+    const mockNames = [
+        'John Doe', 'Jane Doe', 'Alice Doe', 'Bob Doe', 'Charlie Doe', 'David Doe', 'Eve Doe', 'Frank Doe', 'Grace Doe', 'Heidi Doe', 'Ivy Doe', 'Jack Doe', 'Karl Doe', 'Liam Doe', 'Mia Doe', 'Nina Doe', 'Oscar Doe', 'Pam Doe', 'Quinn Doe', 'Ruth Doe', 'Sam Doe', 'Tina Doe', 'Uma Doe', 'Vic Doe', 'Will Doe', 'Xena Doe', 'Yara Doe', 'Zara Doe'
+    ];
+    const mockRoles = ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'Data Engineering', 'Other'];
+    const mockLocations = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
+    const mockInterests = ['Development', 'Design', 'Data', 'Management', 'Other'];
+    const mockUsers = [];
+
+    const randomDate = () => {
+        return new Date().setDate(new Date().getDate() - Math.floor(Math.random() * 365));
+    }
+    useEffect(() => {
         for (let i = 0; i < numOfMockedUsers; i++) {
             mockUsers.push({
                 id: i,
@@ -43,6 +45,7 @@ export default function MembersView() {
         setFilteredUsers(mockUsers);
         setLoading(false);
     }, []);
+    // END OF MOCK USERS FUNCTIONALITY
 
     // useEffect(() => {
     //     const fetchUsers = async () => {
@@ -53,25 +56,33 @@ export default function MembersView() {
     //     };
     //     fetchUsers();
     // }, []);
+
     // TODO: Consider adding useMemo or useCallback to filterUsers and searchForUsers to memoize their filters.
     const [filteredUsers, setFilteredUsers] = useState([]);
     const filterUsers = (selectedFilters) => {
         if (!selectedFilters.length) {
             return setFilteredUsers(users);
         }
-        // TODO: Make filters additive.
+
+        const locationFilters = selectedFilters.filter(filter => mockLocations.includes(filter));
+        const disciplineFilters = selectedFilters.filter(filter => mockRoles.includes(filter));
+        const interestFilters = selectedFilters.filter(filter => mockInterests.includes(filter));
+        const otherFilters = selectedFilters.filter(filter => !locationFilters.includes(filter) && !disciplineFilters.includes(filter) && !interestFilters.includes(filter));
+
         setFilteredUsers(users.filter(user => {
-            for (let i = 0; i < selectedFilters.length; i++) {
-                if (selectedFilters[i] === 'Active' && user.lastActive >= new Date().getDay() - 30) return true;
-                if (selectedFilters[i] === 'Inactive' && user.lastActive < new Date().getDay() - 30) return true;
-                if (selectedFilters[i] === 'Today' && user.birthday === new Date().getDay()) return true;
-                if (selectedFilters[i] === 'This Week' && user.birthday >= new Date().getDay() && user.birthday <= new Date().getDay() + 7) return true;
-                if (selectedFilters[i] === 'This Month' && user.birthday >= new Date().getDay() && user.birthday <= new Date().getDay() + 30) return true;
-                if (selectedFilters[i] === user.discipline) return true;
-                if (selectedFilters[i] === user.locationCity) return true;
-                if (selectedFilters[i] === user.interest) return true;
+            if (locationFilters.length && !locationFilters.includes(user.locationCity)) return false;
+            if (disciplineFilters.length && !disciplineFilters.includes(user.discipline)) return false;
+            if (interestFilters.length && !interestFilters.includes(user.interest)) return false;
+
+            for (let filter of otherFilters) {
+                if (filter === 'Active' && user.lastActive < new Date().getDay() - 30) return false;
+                if (filter === 'Inactive' && user.lastActive >= new Date().getDay() - 30) return false;
+                if (filter === 'Today' && user.birthday !== new Date().getDay()) return false;
+                if (filter === 'This Week' && (user.birthday < new Date().getDay() || user.birthday > new Date().getDay() + 7)) return false;
+                if (filter === 'This Month' && (user.birthday < new Date().getDay() || user.birthday > new Date().getDay() + 30)) return false;
+                if (filter !== 'Active' && filter !== 'Inactive' && filter !== 'Today' && filter !== 'This Week' && filter !== 'This Month' && user.discipline !== filter && user.locationCity !== filter && user.interest !== filter) return false;
             }
-            return false;
+            return true;
         }));
     };
     const resetFilteredUsers = () => {
@@ -89,7 +100,8 @@ export default function MembersView() {
         );
         setFilteredUsers(searchedUsers)
     }
-
+    // TODO: membersSelected does not update to remove users when filteredUsers changes.
+    // For example, if a user is selected and then the filters are changed to exclude that user, the user remains selected.
     const [membersSelected, setMembersSelected] = useState([]);
     const [onOpen, setOnOpen] = useState(false);
     const handleModalOpen = () => {
@@ -125,7 +137,7 @@ export default function MembersView() {
                         </div>
                         <SearchBar searchForUsers={searchForUsers}/>
                     </div>
-                    {!loading && <MembersList users={filteredUsers} membersSelected={membersSelected}
+                    {!loading && <MembersList key={filteredUsers.length} users={filteredUsers} membersSelected={membersSelected}
                                               setMembersSelected={setMembersSelected}/>}
                     <button className="action-button" onClick={handleModalOpen}>+ Action</button>
                 </div>
