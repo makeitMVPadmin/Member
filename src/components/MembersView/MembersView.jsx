@@ -53,13 +53,13 @@ export default function MembersView() {
     //     };
     //     fetchUsers();
     // }, []);
-
+    // TODO: Consider adding useMemo or useCallback to filterUsers and searchForUsers to memoize their filters.
     const [filteredUsers, setFilteredUsers] = useState([]);
     const filterUsers = (selectedFilters) => {
         if (!selectedFilters.length) {
             return setFilteredUsers(users);
         }
-
+        // TODO: Make filters additive.
         setFilteredUsers(users.filter(user => {
             for (let i = 0; i < selectedFilters.length; i++) {
                 if (selectedFilters[i] === 'Active' && user.lastActive >= new Date().getDay() - 30) return true;
@@ -77,6 +77,7 @@ export default function MembersView() {
     const resetFilteredUsers = () => {
         setFilteredUsers(users);
     }
+    // TODO: Make search and filter play nice.
     const searchForUsers = (searchInput) => {
         const searchTerm = searchInput.toLowerCase().trim()
 
@@ -120,7 +121,7 @@ export default function MembersView() {
                     <div className="member-list__top">
                         <div className="member-list__count-wrapper">
                             <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
-                            <p className="member-list__count body-copy">{membersSelected.length ? `Members (${membersSelected.length})` : `Members (${users.length})`}</p>
+                            <p className="member-list__count body-copy">{membersSelected.length ? `Members (${membersSelected.length})` : `Members (${filteredUsers.length})`}</p>
                         </div>
                         <SearchBar searchForUsers={searchForUsers}/>
                     </div>
