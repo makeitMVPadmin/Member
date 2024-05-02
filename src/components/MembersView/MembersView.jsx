@@ -10,6 +10,14 @@ import Icons from '../../functions/icons_holder';
 import {ToastContainer, toast, Bounce} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const convertDaysToMilliseconds = (days) => {
+    return days * 24 * 60 * 60 * 1000;
+}
+
+const randomDate = () => {
+    return new Date().setDate(new Date().getDate() - Math.floor(Math.random() * 365));
+}
+
 export default function MembersView() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -24,9 +32,6 @@ export default function MembersView() {
     const mockInterests = ['Development', 'Design', 'Data', 'Management', 'Other'];
     const mockUsers = [];
 
-    const randomDate = () => {
-        return new Date().setDate(new Date().getDate() - Math.floor(Math.random() * 365));
-    }
     useEffect(() => {
         for (let i = 0; i < numOfMockedUsers; i++) {
             mockUsers.push({
@@ -68,18 +73,22 @@ export default function MembersView() {
         const disciplineFilters = selectedFilters.filter(filter => mockRoles.includes(filter));
         const interestFilters = selectedFilters.filter(filter => mockInterests.includes(filter));
         const otherFilters = selectedFilters.filter(filter => !locationFilters.includes(filter) && !disciplineFilters.includes(filter) && !interestFilters.includes(filter));
+        const currentDate = new Date();
 
         setFilteredUsers(users.filter(user => {
             if (locationFilters.length && !locationFilters.includes(user.locationCity)) return false;
             if (disciplineFilters.length && !disciplineFilters.includes(user.discipline)) return false;
             if (interestFilters.length && !interestFilters.includes(user.interest)) return false;
 
+            const userBirthdayDate = new Date(user.birthday);
+            const userLastActiveDate = new Date(user.lastActive);
+
             for (let filter of otherFilters) {
-                if (filter === 'Active' && user.lastActive < new Date().getDay() - 30) return false;
-                if (filter === 'Inactive' && user.lastActive >= new Date().getDay() - 30) return false;
-                if (filter === 'Today' && user.birthday !== new Date().getDay()) return false;
-                if (filter === 'This Week' && (user.birthday < new Date().getDay() || user.birthday > new Date().getDay() + 7)) return false;
-                if (filter === 'This Month' && (user.birthday < new Date().getDay() || user.birthday > new Date().getDay() + 30)) return false;
+                if (filter === 'Active' && userLastActiveDate < currentDate - convertDaysToMilliseconds(30)) return false;
+                if (filter === 'Inactive' && userLastActiveDate >= currentDate - convertDaysToMilliseconds(30)) return false;
+                if (filter === 'Today' && userBirthdayDate !== currentDate) return false;
+                if (filter === 'This Week' && (userBirthdayDate < currentDate || userBirthdayDate > currentDate + convertDaysToMilliseconds(7))) return false;
+                if (filter === 'This Month' && (userBirthdayDate < currentDate || userBirthdayDate > currentDate + convertDaysToMilliseconds(30))) return false;
                 if (filter !== 'Active' && filter !== 'Inactive' && filter !== 'Today' && filter !== 'This Week' && filter !== 'This Month' && user.discipline !== filter && user.locationCity !== filter && user.interest !== filter) return false;
             }
             return true;
@@ -88,6 +97,7 @@ export default function MembersView() {
     const resetFilteredUsers = () => {
         setFilteredUsers(users);
     }
+
     // TODO: Make search and filter play nice.
     const searchForUsers = (searchInput) => {
         const searchTerm = searchInput.toLowerCase().trim()
@@ -100,6 +110,7 @@ export default function MembersView() {
         );
         setFilteredUsers(searchedUsers)
     }
+
     // TODO: membersSelected does not update to remove users when filteredUsers changes.
     // For example, if a user is selected and then the filters are changed to exclude that user, the user remains selected.
     const [membersSelected, setMembersSelected] = useState([]);
@@ -137,8 +148,9 @@ export default function MembersView() {
                         </div>
                         <SearchBar searchForUsers={searchForUsers}/>
                     </div>
-                    {!loading && <MembersList key={filteredUsers.length} users={filteredUsers} membersSelected={membersSelected}
-                                              setMembersSelected={setMembersSelected}/>}
+                    {!loading &&
+                        <MembersList key={filteredUsers.length} users={filteredUsers} membersSelected={membersSelected}
+                                     setMembersSelected={setMembersSelected}/>}
                     <button className="action-button" onClick={handleModalOpen}>+ Action</button>
                 </div>
             </div>

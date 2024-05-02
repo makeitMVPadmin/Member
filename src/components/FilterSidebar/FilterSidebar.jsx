@@ -16,7 +16,7 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
     const filters = [{
         title: 'Role',
         icon: `${roleFilterIcon}`,
-        items: ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'Data Engineering', 'Other']
+        items: ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'Data Engineering', 'Other'],
     }, {
         title: 'Location',
         icon: `${locationFilterIcon}`,
