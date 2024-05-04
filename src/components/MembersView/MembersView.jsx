@@ -132,7 +132,7 @@ export default function MembersView() {
     const dummyFilters = ["filterOne", "filterTwo", "filterOne", "filterTwo",];
 
     return (
-        <>
+        <div className='members-view'>
             <ToastContainer
                 position="top-center"
                 autoClose={3000}
@@ -156,7 +156,7 @@ export default function MembersView() {
             </div>
             <EmailModal onOpen={onOpen} handleModal={handleModalOpen} notify={notify} filtersApplied={dummyFilters}
                         membersSelected={membersSelected}/>
-        </>
+        </div>
     )
 
 }

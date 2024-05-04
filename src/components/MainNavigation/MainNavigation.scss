@@ -7,12 +7,13 @@
     width: 100%;
     align-items: center;
     position: relative;
-    top: 2.5px;
+    top: -55px;
     
     
 
     &__tab{
         position: relative;
+        top: 0;
         background-color: #0099FF;
         border-radius: 4px 4px 0 0;
         border-top: 2px solid #000;
@@ -22,16 +23,19 @@
         min-height: 36px;
         max-width: 128px;
         width: 100%;
-        z-index: 0;
+        z-index: 1;
         @extend .buttons-copy;
 
         &.isActive{
             background-color: #E1F0FB;
-            z-index: 0;
+            z-index: 3;
+            position: relative;
+            top: 4px;
         }
     }
 }
 
 .view-container {
     padding: 1rem;
+    z-index: -10;
 }

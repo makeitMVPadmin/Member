@@ -32,24 +32,24 @@ export default function TempUi(){
             </nav>
             <section className="hero">
                 <div className="back-nav">
-                    <img src={Icons().IconArrow} alt="" className="back-nav__return-arrow" />
+                    <img src={Icons().IconArrowBack} alt="" className="back-nav__return-arrow" />
                     <p className="back-nav__text">Back to Communities</p>
                 </div>
                 <img src="" alt="" className="community-image" />
                 <section className="community-info">
                     <div className="title-section">
                         <h1 className="title-section__title">Product Pitchers</h1>
-                        <img src={Icons().IconEdit} alt="" className="title-section__icon" />
-                        <img src={Icons().IconDelete} alt="" className="title-section__icon" />
+                        <img src={Icons().IconEdit} alt="edit" className="title-section__icon" />
+                        <img src={Icons().IconDelete} alt="delete" className="title-section__icon" />
                     </div>
                     <div className="title-sub-info">
                         <div className="title-sub-info__left-container">
                             <div className="tag">
-                                <img src="" alt="pin" className="tag__icon" />
+                                <img src={Icons().IconLocation} alt="pin" className="tag__icon" />
                                 <p className="tag__text">San Fransisco</p>
                             </div>
                             <div className="tag">
-                                <img src="" alt="pin" className="tag__icon" />
+                                <img src={Icons().IconLocation} alt="pin" className="tag__icon" />
                                 <p className="tag__text">Virtual</p>
                             </div>
                         </div>

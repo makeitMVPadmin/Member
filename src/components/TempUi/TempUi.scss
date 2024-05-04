@@ -35,7 +35,7 @@
 .hero{
     display: flex;
     flex-wrap: wrap;
-    background-color: $color-mvp-pale-blue;
+    background-color: #C8E7FB;
     justify-content: center;
     .back-nav{
         display: flex;
@@ -56,10 +56,13 @@
         border-radius: 8px;
     }
     .community-info{
-        border: 1px solid $color-mvp-black;
+        border: 1.5px solid $color-mvp-black;
         width: 60%;
         height: min-content;
         background-color: $color-mvp-white;
+        padding: 8px;
+        border-radius: 6px;
+        align-self: flex-end;
         .title-section{
             display: flex;
             justify-content: flex-end;
@@ -81,15 +84,21 @@
 
             &__left-container{
                 display: flex;
+                gap: 2px;
 
                 .tag{
                     display: flex;
                     background-color: $color-mvp-pale-blue;
+                    border-radius: 4px;
+                    padding: 6px;
+                    
                     &__icon{
-
+                        width: 18px;
+                        filter:brightness(0) saturate(100%) invert(37%) sepia(11%) saturate(250%) hue-rotate(161deg) brightness(97%) contrast(89%);
                     }
                     &__text{
-
+                        align-self: center;
+                        @extend .body-copy;
                     }
                 }
             }
@@ -116,11 +125,16 @@
     }
 }
 .description{
-    margin: 0 13vw;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #F2F2F2;
+    height: 140px;
+    padding: 18px 0;
     &__header{
-
+        margin: 0 13vw;
     }
     &__text{
-
+        margin: 0 13vw;
     }
 }
