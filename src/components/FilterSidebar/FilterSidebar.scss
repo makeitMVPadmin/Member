@@ -1,13 +1,20 @@
 .filter-component {
   background-color: #000000;
   color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 250px;
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  width: 15.625rem;
+  padding: 1rem;
+  overflow-y: hidden;
+  min-width: 8.75rem;
+  
+  &__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  }
+}
 
-  h2 {
+h2 {
     font-size: 1.2em;
     cursor: pointer;
     user-select: none;
@@ -83,7 +90,7 @@
     background-color: white;
     box-sizing: border-box;
   }
-}
+
 
 summary {
   display: flex;
@@ -91,24 +98,23 @@ summary {
   width: 100%;
   margin-bottom: 10px;
   position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #fff;
-    margin-left: 5px;
-    transform: translateY(-50%);
-  }
+  transition: transform 0.5s ease;
 
   img {
     width: 20px;
     height: 20px;
     margin-right: 10px;
+  }
+  .chevron {
+    margin-left: auto;
+    height: 7px;
+    width: 14px;
+
+    &--up {
+      transform: rotate(180deg);
+      margin-left: auto;
+      height: 7px;
+      width: 14px;
+    }
   }
 }

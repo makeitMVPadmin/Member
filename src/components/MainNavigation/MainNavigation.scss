@@ -30,12 +30,13 @@
             background-color: #E1F0FB;
             z-index: 3;
             position: relative;
-            top: 4px;
+            top: 1px;
+            height: 38px;
         }
     }
 }
 
 .view-container {
-    padding: 1rem;
     z-index: -10;
+    padding: 1rem 1rem 1rem 0;
 }

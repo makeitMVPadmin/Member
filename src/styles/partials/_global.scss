@@ -113,11 +113,16 @@ input {
   height: 1.5625rem;
 }
 
-button {
+.button {
   font-size: 14px;
   line-height: 1.375rem;
   font-family: "Gilroy", Arial, sans-serif;
   font-weight: 800;
+  position: relative;
+  min-width: 140px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
 
   @include tablet-plus {
     font-size: 16px;
@@ -125,20 +130,24 @@ button {
     font-family: "Gilroy", Arial, sans-serif;
     font-weight: 800;
   }
-}
 
-.action-button {
-  position: relative;
-  display: flex;
-  min-width: 140px;
-  padding: 8px;
+  &--action {
   border: 2px solid $color-mvp-black;
   border-radius: 8px;
   background-color: $color-mvp-yellow;
   align-self: flex-end;
-  display: flex;
-  justify-content: center;
   gap: 8px;
+  }
+
+  &--reset {
+    background-color: $color-mvp-black;
+    border: 2px solid #FFF;
+    align-self: flex-end;
+    color: white;
+    border-radius: 0.25rem;
+    width: 160px;
+    height: 51px;
+  }
 }
 
 .capitalize-first {

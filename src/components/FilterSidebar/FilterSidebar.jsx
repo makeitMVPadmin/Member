@@ -34,8 +34,9 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
     return (
         <div className={`filter-component`}>
             <details>
-                <summary>
+                <summary className="filter-component__header">
                     <h2>Filters</h2>
+                    <button className="button--reset button ">Reset Filter</button>
                 </summary>
                 <div>
                     {filters.map((filter, index) => (
