@@ -39,6 +39,7 @@
                 padding-top: 4px;
                 @extend .body-copy;
                 font-size: 24px;
+                margin-right: 4px;
             }
             // <FilterSummary /> goes here in the JSX
             &__close-button{
@@ -51,6 +52,7 @@
                 background-color: $color-mvp-dark-blue;
                 letter-spacing: 0.5px;
                 max-height: 34px;
+                // justi;
 
                 @include tablet-plus{
                     max-height: 36px;
@@ -70,7 +72,7 @@
             &__subject-field{
                 border: 2px solid $color-mvp-black;
                 border-radius: 4px;
-                padding: 10px 0 0 10px;
+                padding: 4px 0 0 10px;
                 @extend .body-copy;
                 height: 36px;
                 &::placeholder{
@@ -124,11 +126,7 @@
                         cursor: pointer;
                     }
                 }
-
-            }
-            
+            }            
         }
-
-
     }
 }

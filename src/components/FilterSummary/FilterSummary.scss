@@ -4,6 +4,7 @@
 .filter-summary{
     display: flex;
     gap: 8px;
+    flex-grow: 1;
 
     &__members{
         border: 2px solid black;
