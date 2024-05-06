@@ -151,7 +151,7 @@ export default function MembersView() {
                     {!loading &&
                         <MembersList key={filteredUsers.length} users={filteredUsers} membersSelected={membersSelected}
                                      setMembersSelected={setMembersSelected}/>}
-                    <button className="button--action" onClick={handleModalOpen}>+ Action</button>
+                    <button className="button button--action" onClick={handleModalOpen}>+ Action</button>
                 </div>
             </div>
             <EmailModal onOpen={onOpen} handleModal={handleModalOpen} notify={notify} filtersApplied={dummyFilters}
