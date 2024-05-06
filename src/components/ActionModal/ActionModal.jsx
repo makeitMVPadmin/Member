@@ -12,13 +12,20 @@ export default function ActionModal({toggleActionOptions, actionOptionsOpen, tog
         <div className='action-modal'>
             {
                 actionOptionsOpen ?
+                <>
+                    <div className="action-modal__overlay" onClick={toggleActionOptions}></div>
                     <section className="action-options">
-                        <button className="action-options__option" onClick={toggleEmailModal}><img src="" alt="IMG" className="option-image" />Send Email</button>
+                        
+                        <button className="action-options__option" onClick={()=>{
+                            toggleEmailModal();
+                            toggleActionOptions();}}><img src="" alt="IMG" className="option-image" />Send Email</button>
                         <hr />
                         <button className="action-options__option"><img src="" alt="IMG" className="option-image" />Send Newsletter </button>
                         <hr />
                         <button className="action-options__option"><img src="" alt="IMG" className="option-image" />Send Event</button>
                     </section>
+                
+                </>
 
                 :
 
