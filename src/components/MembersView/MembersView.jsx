@@ -65,6 +65,7 @@ export default function MembersView() {
 
     // TODO: Consider adding useMemo or useCallback to filterUsers and searchForUsers to memoize their filters.
     const [filteredUsers, setFilteredUsers] = useState([]);
+    // const [selectedFilters, setSelectedFilters] = useState([])
     const filterUsers = (selectedFilters) => {
         if (!selectedFilters.length) {
             return setFilteredUsers(users);
@@ -135,7 +136,7 @@ export default function MembersView() {
         theme: "dark",
         transition: Bounce,
     });
-    const dummyFilters = ["filterOne", "filterTwo", "filterOne", "filterTwo",];
+    const dummyFilters = ["AB",];
 
     return (
         <div className='members-view'>
