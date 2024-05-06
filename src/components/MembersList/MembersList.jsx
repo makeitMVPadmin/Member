@@ -40,19 +40,19 @@ export default function MembersList({ users, membersSelected, setMembersSelected
         {/* Header */}
         <div className="body-copy">
             <ul className="member-list__header">
-                <li className="column--short body-copy"><input type="checkbox" onChange={handleSelectAll}/></li>
-                <li className="column column--userinfo body-copy">Member</li>
+                <li className="column--short body-copy checkbox"><input type="checkbox" onChange={handleSelectAll}/></li>
+                <li className="column column--userinfo body-copy">Name & Email</li>
                 <li className="column body-copy">Role</li>
                 <li className="column column--hidden body-copy">Location</li>
                 <li className="column column--hidden body-copy">Last Active</li>
             </ul>
         </div>
-        {/* List out individual members */}
+        {/* List out individual members  maybe change key to user.id*/}
         <div className="member-list__container">
             {users.map((user,index)=> 
-            (<div className="member-card__background" key={user.id}>
+            (<div className="member-card__background" key={index}>
                     <ul className="member-card body-copy">
-                        <li className="member-card__checkbox column--short"><input type="checkbox"
+                        <li className="checkbox column--short"><input type="checkbox"
                                                                                    checked={selectAll || membersSelected.includes(user.email)}
                                                                                    onChange={() => {
                                                                                        handleCheckboxChange(user.email)

@@ -22,7 +22,7 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
         icon: `${locationFilterIcon}`,
         items: ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT']
     }, {
-        title: 'Status', icon: `${statusFilterIcon}`, items: ['Active', 'Inactive']
+        title: 'Activity Status', icon: `${statusFilterIcon}`, items: ['Active', 'Inactive']
     }, {
         title: 'Birthday', icon: `${birthdayFilterIcon}`, items: ['Today', 'This Week', 'This Month']
     }, {
@@ -31,13 +31,19 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
         items: ['Development', 'Design', 'Data', 'Management', 'Other']
     },];
 
+const resetFilter = ()=>{
+    resetFilteredUsers();
+    setSelectedFilters([]);
+}
+
     return (
         <div className={`filter-component`}>
-            <details>
-                <summary>
+            
+                <div className="filter-component__header">
                     <h2>Filters</h2>
-                </summary>
-                <div>
+                    <button className="button--reset button" onClick={resetFilter}>Reset Filter</button>
+                </div>
+               <div> 
                     {filters.map((filter, index) => (
                         <Filter key={index}
                                 filterUsers={filterUsers}
@@ -48,8 +54,7 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
                                 selectedFilters={selectedFilters}
                         />
                     ))}
-                </div>
-            </details>
+            </div>
         </div>);
 };
 

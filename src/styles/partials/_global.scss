@@ -97,6 +97,11 @@ input {
     border-radius: 4px;
     padding-left: 2.5rem;
   }
+
+  &[type="checkbox"] {
+    width: 20px;
+    accent-color:$color-mvp-pale-blue;
+  }
 }
 
 .search-bar__container {
@@ -113,32 +118,45 @@ input {
   height: 1.5625rem;
 }
 
-button {
+.button {
   font-size: 14px;
   line-height: 1.375rem;
   font-family: "Gilroy", Arial, sans-serif;
   font-weight: 800;
-
-  @include tablet-plus {
-    font-size: 16px;
-    line-height: 1.5rem;
-    font-family: "Gilroy", Arial, sans-serif;
-    font-weight: 800;
-  }
-}
-
-.action-button {
   position: relative;
-  display: flex;
-  min-width: 140px;
   padding: 8px;
-  border: 2px solid $color-mvp-black;
-  border-radius: 8px;
-  background-color: $color-mvp-yellow;
-  align-self: flex-end;
   display: flex;
   justify-content: center;
-  gap: 8px;
+
+  
+  &--action {
+    border: 2px solid $color-mvp-black;
+    border-radius: 8px;
+    background-color: $color-mvp-yellow;
+    align-self: flex-end;
+    gap: 8px;
+    min-width: 90px;
+    width: 90px;
+    height: 40px;
+      
+      @include tablet-plus {
+      font-size: 16px;
+      line-height: 1.5rem;
+      font-family: "Gilroy", Arial, sans-serif;
+      font-weight: 800;
+    }
+  }
+
+  &--reset {
+    background-color: $color-mvp-black;
+    border: 1px solid #FFF;
+    align-self: flex-end;
+    color: white;
+    border-radius: 0.25rem;
+    width: 160px;
+    min-width: 100px;
+    height: 40px;
+  }
 }
 
 .capitalize-first {

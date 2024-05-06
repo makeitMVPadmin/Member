@@ -1,5 +1,9 @@
 import './TempUi.scss'
 import Icons from '../../functions/icons_holder'
+import CommunitiLogo from '../../assets/logos/communiti_logo.svg'
+import profileHeadshot from '../../assets/images/profileHeadshot.png'
+import notebook from '../../assets/images/notebookSketch.png'
+import chevron from '../../assets/icons/icon_chevron.svg'
 
 export default function TempUi(){
     
@@ -7,7 +11,7 @@ export default function TempUi(){
         <>
             <nav className="nav-bar">
                 <div className="left-container">
-                    <img src="" alt="Communiti Logo" className="left-container__logo" />
+                    <img src={CommunitiLogo} alt="Communiti Logo" className="left-container__logo" />
                     <div className="icon-pair">
                         <img src={Icons().IconDashboard} alt="Home Icon" className="icon-pair__icon" />
                         <p className="icon-pair__label">Home</p>
@@ -26,8 +30,8 @@ export default function TempUi(){
                     </div>
                 </div>
                 <div className="right-container">
-                    <img src="" alt="Profile Headshot" className="right-container__headshot" />
-                    <img src="" alt="downward chevron" className="right-container__chevron" />
+                    <img src={profileHeadshot} alt="Profile Headshot" className="right-container__headshot" />
+                    <img src={chevron} alt="downward chevron" className="right-container__chevron" />
                 </div>
             </nav>
             <section className="hero">
@@ -35,12 +39,12 @@ export default function TempUi(){
                     <img src={Icons().IconArrowBack} alt="" className="back-nav__return-arrow" />
                     <p className="back-nav__text">Back to Communities</p>
                 </div>
-                <img src="" alt="" className="community-image" />
+                <img src={notebook} alt="" className="community-image" />
                 <section className="community-info">
                     <div className="title-section">
                         <h1 className="title-section__title">Product Pitchers</h1>
-                        <img src={Icons().IconEdit} alt="edit" className="title-section__icon" />
-                        <img src={Icons().IconDelete} alt="delete" className="title-section__icon" />
+                        <img src={Icons().IconEdit} alt="edit" className="title-section__icon title-section__icon--edit" />
+                        <img src={Icons().IconDelete} alt="delete" className="title-section__icon "/>
                     </div>
                     <div className="title-sub-info">
                         <div className="title-sub-info__left-container">
@@ -56,7 +60,7 @@ export default function TempUi(){
                         <div className="title-sub-info__right-container">
                             <div className="title-icon">
                                 <img src={Icons().IconMembers} alt="edit" className="title-icon__image" />
-                                <p className="title-icon__text"> ## members</p>
+                                <p className="title-icon__text"> 1000 members</p>
                             </div>
                         </div>
                     </div>
