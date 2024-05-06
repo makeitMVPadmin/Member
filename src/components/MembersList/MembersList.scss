@@ -21,15 +21,16 @@
             margin: 0.5rem 0; 
         }
     }
-
+ 
     &__count {
-        font-size: 1.875rem;
+        font-size: 14px;
+        font-family: "Corben";
     }
 
     &__icon {
         margin-right: 0.5rem;
-        height: 2rem;
-        width: 2rem;
+        height: 20px;
+        width:20px;
     }
 
     &__header {
@@ -127,6 +128,7 @@
 .column {
     min-width: 5rem;
     padding: 0.5rem;
+    overflow-x: hidden;
 
     @include tablet-plus {
         width: 18vw;

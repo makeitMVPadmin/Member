@@ -6,38 +6,57 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 0;
+    margin: 0 1rem;
     // width: 100vw;
     .left-container{
         display: flex;
         align-items: center;
         gap: 16px;
         &__logo{
-
+            width: 200px;
         }
+
         .icon-pair{
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
             justify-content: space-between;
-            &__icon{
 
+            &__icon{
+                height: 20px;
+                width: 20px;
             }
             &__label{
-
+                font-family: "Gilroy";
+                font-size: 14px;
+                line-height: 14px;
             }
         }
     }
     .right-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
         &__headshot{
+            border-radius: 50%;
+            width: 50px;
 
         }
         &__chevron{
-
+            margin-left: 1rem;
+            height: 12px;
+            width: 20px;
+            filter: brightness(0);
         }
     }
 }
+
+.hero-background{
+    width: 100%;
+}
+
 .hero{
     display: flex;
     flex-wrap: wrap;
@@ -49,24 +68,27 @@
         height: 36px;
         width: 100%;
         align-items: center;
-        margin-left: 4vw;
+        margin-left: 1rem;
         // justify-content: ;
         &__return-arrow{
-            // transform: rotateX('180');
+            margin-right: 0.5rem;
         }
         &__text{
-
+            
         }
     }
     .community-image{
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         border: 1px solid $color-mvp-black;
         border-radius: 8px;
         align-self: flex-end;
+        margin-right: 0.5rem;
+        position:relative;
+        top: 10px;
     }
     .community-info{
-        border: 1.5px solid $color-mvp-black;
+        border: 1px solid $color-mvp-black;
         width: 60%;
         height: min-content;
         background-color: $color-mvp-white;
@@ -74,6 +96,7 @@
         border-radius: 6px;
         align-self: flex-end;
         margin-bottom: 8px;
+
         .title-section{
             display: flex;
             justify-content: flex-end;
@@ -92,6 +115,7 @@
         .title-sub-info{
             display: flex;
             width: 100%;
+            font-family: "Gilroy";
 
             &__left-container{
                 display: flex;
@@ -102,6 +126,7 @@
                     background-color: $color-mvp-pale-blue;
                     border-radius: 4px;
                     padding: 6px;
+                    margin-right: 2px;
                     
                     &__icon{
                         width: 18px;
@@ -117,6 +142,8 @@
                 display: flex;
                 flex-grow: 1;
                 justify-content: flex-end;
+                align-items: flex-end;
+
                 .title-icon{
                     display: flex;
 
@@ -142,6 +169,9 @@
     background-color: #F2F2F2;
     height: 140px;
     padding: 18px 0;
+    margin: 0 2rem;
+    font-family: 'Gilroy';
+
     &__header{
         margin: 0 13vw;
     }

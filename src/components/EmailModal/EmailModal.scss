@@ -9,7 +9,7 @@
     left:0;
     width: 100%;
     height: 100vh;
-    z-index: 3;
+    z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@
         border: $color-mvp-black solid 2px;
         background-color: $color-mvp-pale-blue;
         padding: 24px;
-        z-index: 2;
+        z-index: 10;
         max-width: 568px;
         width: 100%;
         display: flex;

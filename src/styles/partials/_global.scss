@@ -97,6 +97,11 @@ input {
     border-radius: 4px;
     padding-left: 2.5rem;
   }
+
+  &[type="checkbox"] {
+    width: 20px;
+    accent-color:$color-mvp-pale-blue;
+  }
 }
 
 .search-bar__container {
@@ -130,7 +135,9 @@ input {
     background-color: $color-mvp-yellow;
     align-self: flex-end;
     gap: 8px;
-    min-width: 140px;
+    min-width: 90px;
+    width: 90px;
+    height: 40px;
       
       @include tablet-plus {
       font-size: 16px;
@@ -142,11 +149,12 @@ input {
 
   &--reset {
     background-color: $color-mvp-black;
-    border: 2px solid #FFF;
+    border: 1px solid #FFF;
     align-self: flex-end;
     color: white;
     border-radius: 0.25rem;
     width: 160px;
+    min-width: 100px;
     height: 40px;
   }
 }

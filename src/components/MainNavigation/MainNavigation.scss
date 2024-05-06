@@ -2,16 +2,15 @@
 
 .main-nav{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1px;
-    width: 100%;
-    align-items: center;
+    align-items: flex-start;
+    align-content: center;
     position: relative;
-    top: -55px;
+    top: 3px;
+    margin: 0 2rem;
+    background-color: #F2F2F2;
     
-    
-    
-
     &__tab{
         position: relative;
         top: 0;
@@ -20,8 +19,8 @@
         border-top: 2px solid #000;
         border-right: 2px solid #000;
         border-left: 2px solid #000;
-        border-bottom: 0px solid transparent;
-        min-height: 36px;
+        border-bottom: 2px solid transparent;
+        min-height: 33px;
         max-width: 128px;
         width: 100%;
         z-index: 1;
@@ -29,15 +28,13 @@
 
         &.isActive{
             background-color: #E1F0FB;
-            z-index: 3;
+            z-index: 2;
             position: relative;
-            top: 1px;
-            height: 38px;
         }
     }
 }
 
-.view-container {
-    z-index: -10;
-    padding: 1rem 1rem 1rem 0;
-}
+// .view-container {
+//     z-index: -10;
+//     padding: 1rem 1rem 1rem 0;
+// }

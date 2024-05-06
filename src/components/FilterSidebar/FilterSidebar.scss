@@ -1,11 +1,11 @@
 .filter-component {
   background-color: #000000;
   color: #fff;
-  border-radius: 0.25rem;
+  border-radius:0.25rem 0 0 0.25rem;
   width: 15.625rem;
-  padding: 1rem;
+  padding: 2rem 1rem;
   overflow-y: hidden;
-  min-width: 8.75rem;
+  min-width: 12.75rem;
   
   &__header {
   display: flex;

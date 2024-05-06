@@ -138,13 +138,13 @@ export default function MembersView() {
                 autoClose={3000}
                 hideProgressBar
             />
-            <div style={{display: 'flex', flexDirection: 'row'}}>
+            <div className="member-component-wrapper">
                 <FilterSidebar filterUsers={filterUsers} resetFilteredUsers={resetFilteredUsers}/>
-                <div style={{marginLeft: '20px', flex: 1}}>
+                <div className="member-list-container">
                     <div className="member-list__top">
                         <div className="member-list__count-wrapper">
                             <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
-                            <p className="member-list__count body-copy">{membersSelected.length ? `Members (${membersSelected.length})` : `Members (${filteredUsers.length})`}</p>
+                            <h2 className="member-list__count">{membersSelected.length ? `Members (${membersSelected.length})` : `Members (${filteredUsers.length})`}</h2>
                         </div>
                         <SearchBar searchForUsers={searchForUsers}/>
                     </div>

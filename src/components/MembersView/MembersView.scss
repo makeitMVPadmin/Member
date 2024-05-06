@@ -9,3 +9,15 @@
     // height: 50vh;
 
 }
+
+.member-component-wrapper{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 0;
+}
+
+.member-list-container {
+    padding: 2rem 1rem;
+    overflow: hidden;
+}
