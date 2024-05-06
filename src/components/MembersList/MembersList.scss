@@ -48,7 +48,7 @@
     &__container {
         height: 60vh;
         overflow-y: scroll;
-        scrollbar-width: thin;
+        scrollbar-width:auto;
         scrollbar-color: $color-mvp-light-blue transparent;
         mask-image: linear-gradient(
             to bottom, 

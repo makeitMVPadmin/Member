@@ -9,6 +9,7 @@ import FilterSummary from '../FilterSummary/FilterSummary';
 import Icons from '../../functions/icons_holder';
 import {ToastContainer, toast, Bounce} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ActionModal from '../ActionModal/ActionModal'
 
 const convertDaysToMilliseconds = (days) => {
     return days * 24 * 60 * 60 * 1000;
@@ -114,9 +115,14 @@ export default function MembersView() {
     // TODO: membersSelected does not update to remove users when filteredUsers changes.
     // For example, if a user is selected and then the filters are changed to exclude that user, the user remains selected.
     const [membersSelected, setMembersSelected] = useState([]);
-    const [onOpen, setOnOpen] = useState(false);
-    const handleModalOpen = () => {
-        setOnOpen(prevState => !prevState);
+    const [emailOpen, setEmailOpen] = useState(false);
+    const toggleEmailModal = () => {
+        setEmailOpen(prevState => !prevState);
+        console.log("email toggled")
+    }
+    const [actionOptionsOpen, setActionOptionsOpen] = useState(false);
+    const toggleActionOptions = () => {
+        setActionOptionsOpen(prevState => !prevState);
     }
     const notify = () => toast.success(`Your message has been successfully sent to ${membersSelected.length} members!`, {
         position: "bottom-center",
@@ -140,7 +146,7 @@ export default function MembersView() {
             />
             <div style={{display: 'flex', flexDirection: 'row'}}>
                 <FilterSidebar filterUsers={filterUsers} resetFilteredUsers={resetFilteredUsers}/>
-                <div style={{marginLeft: '20px', flex: 1}}>
+                <div className='members-container'>
                     <div className="member-list__top">
                         <div className="member-list__count-wrapper">
                             <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
@@ -149,13 +155,17 @@ export default function MembersView() {
                         <SearchBar searchForUsers={searchForUsers}/>
                     </div>
                     {!loading &&
-                        <MembersList key={filteredUsers.length} users={filteredUsers} membersSelected={membersSelected}
-                                     setMembersSelected={setMembersSelected}/>}
-                    <button className="action-button" onClick={handleModalOpen}>+ Action</button>
+                        <MembersList users={filteredUsers} membersSelected={membersSelected}
+                                     setMembersSelected={setMembersSelected}/>
+                    }
+                    
+                    <ActionModal actionOptionsOpen={actionOptionsOpen} toggleActionOptions={toggleActionOptions} toggleEmailModal={toggleEmailModal}/>
                 </div>
             </div>
-            <EmailModal onOpen={onOpen} handleModal={handleModalOpen} notify={notify} filtersApplied={dummyFilters}
-                        membersSelected={membersSelected}/>
+            {emailOpen && 
+                <EmailModal emailOpen={emailOpen} handleModal={toggleEmailModal} notify={notify} filtersApplied={dummyFilters}
+                membersSelected={membersSelected}/>
+            }
         </div>
     )
 

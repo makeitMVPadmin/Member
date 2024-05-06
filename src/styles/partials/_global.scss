@@ -127,20 +127,6 @@ button {
   }
 }
 
-.action-button {
-  position: relative;
-  display: flex;
-  min-width: 140px;
-  padding: 8px;
-  border: 2px solid $color-mvp-black;
-  border-radius: 8px;
-  background-color: $color-mvp-yellow;
-  align-self: flex-end;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
 .capitalize-first {
   text-transform: capitalize;
 }

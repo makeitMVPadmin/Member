@@ -5,7 +5,7 @@ import Icons from '../../functions/icons_holder';
 import { useEffect } from 'react';
 
 
-export default function EmailModal({onOpen, handleModal, notify, filtersApplied, membersSelected}) {
+export default function EmailModal({handleModal, notify, filtersApplied, membersSelected}) {
     
     const [error, setError] = useState(false);
 
@@ -13,14 +13,6 @@ export default function EmailModal({onOpen, handleModal, notify, filtersApplied,
         subject: '',
         message: ''
     })
-
-    useEffect(() => {
-        setError(false)
-    }, [onOpen]);
-
-    if (onOpen !== true) {
-        return null;
-    }
 
     
 
