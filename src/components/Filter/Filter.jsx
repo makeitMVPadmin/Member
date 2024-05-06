@@ -23,9 +23,10 @@ export default function Filter({filterUsers, filterIcon, filterTitle, filterItem
                     <h3>{filterTitle}</h3>
                 </summary>
                 {filterItems.map((filter, index) => (
-                    <div key={index}>
+                    <div className='filter-check' key={index}>
                         <input
                             id={`${filter}-${index}`}
+                            className='filter-check__input'
                             type="checkbox"
                             checked={selectedFilters.includes(filter)}
                             onChange={() => toggleFilter(filter)}
