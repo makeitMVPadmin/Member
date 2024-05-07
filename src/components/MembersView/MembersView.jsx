@@ -10,16 +10,10 @@ import Icons from '../../functions/icons_holder';
 import {ToastContainer, toast, Bounce} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ActionModal from '../ActionModal/ActionModal'
+import { convertDaysToMilliseconds, getRandomDate } from '../../utils/utils';
 
-const convertDaysToMilliseconds = (days) => {
-    return days * 24 * 60 * 60 * 1000;
-}
-
-const randomDate = () => {
-    return new Date().setDate(new Date().getDate() - Math.floor(Math.random() * 365));
-}
-
-// Something is causing MembersView to render twice on page load.
+// TODO: Something is causing MembersView to render twice on page load. This is slowing things down. To check, add a console.log to the useEffect and log the length of the mockUsers array.
+// In theory, this useEffect should only run once since it has an empty dependency array, but it's running twice.
 export default function MembersView() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -30,7 +24,7 @@ export default function MembersView() {
         'John', 'Jane', 'Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Heidi', 'Ivy', 'Jack', 'Karl', 'Liam', 'Mia', 'Nina', 'Oscar', 'Pam', 'Quinn', 'Ruth', 'Sam', 'Tina', 'Uma', 'Vic', 'Will', 'Xena', 'Yara', 'Zara'
     ]
     const mockLastNames = [
-        'Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark', 'Rodriguez', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Hernandez', 'King', 'Wright', 'Lopez', 'Hill', 'Scott', 'Green', 'Adams', 'Baker', 'Gonzalez', 'Nelson', 'Carter', 'Mitchell', 'Perez', 'Roberts', 'Turner', 'Phillips', 'Campbell', 'Parker', 'Evans', 'Edwards', 'Collins', 'Stewart', 'Sanchez', 'Morris', 'Rogers', 'Reed', 'Cook', 'Morgan', 'Bell', 'Murphy', 'Bailey', 'Rivera', 'Cooper', 'Richardson', 'Cox', 'Howard', 'Ward', 'Torres', 'Peterson', 'Gray', 'Ramirez', 'James', 'Watson', 'Brooks', 'Kelly', 'Sanders', 'Price', 'Bennett', 'Wood', 'Barnes', 'Ross', 'Henderson', 'Cole', 'Jenkins', 'Perry', 'Powell', 'Long', 'Patterson', 'Hughes', 'Flores', 'Washington', 'Butler', 'Simmons', 'Foster', 'Gonzales', 'Bryant', 'Alexander', 'Russell', 'Griffin', 'Diaz', 'Hayes',
+        'Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark', 'Rodriguez',
     ]
     const mockRoles = ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'Data Engineering', 'Other'];
     const mockLocations = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
@@ -49,8 +43,8 @@ export default function MembersView() {
                 discipline: mockRoles[Math.floor(Math.random() * mockRoles.length)],
                 locationCity: mockLocations[Math.floor(Math.random() * mockLocations.length)],
                 interest: mockInterests[Math.floor(Math.random() * mockInterests.length)],
-                lastActive: randomDate(),
-                birthday: randomDate(),
+                lastActive: getRandomDate(),
+                birthday: getRandomDate(),
             });
         }
         setUsers(mockUsers);
