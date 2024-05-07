@@ -74,7 +74,7 @@
             margin-right: 0.5rem;
         }
         &__text{
-            
+            @extend .body-copy;
         }
     }
     .community-image{

@@ -63,6 +63,7 @@
         border-radius: 8px;
         background-color: $color-mvp-yellow;
         cursor: pointer;
+        @extend .body-copy;
         // align-self: flex-end;
         justify-content: center;
         // gap: 8px;

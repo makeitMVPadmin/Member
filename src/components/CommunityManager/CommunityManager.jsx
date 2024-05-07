@@ -9,9 +9,10 @@ export default function CommunityManager(){
 
     return(
         <>
-            <section className="community-manager">                
-                 <MainNavigation currentView={currentView} setCurrentView={setCurrentView}/>
+            <section className="community-manager">
                 <section className="view-container">
+                    <MainNavigation currentView={currentView} setCurrentView={setCurrentView}/>
+
                     {
                         
                         currentView === "viewAnnouncements" ? (<PlaceHolderView />)

@@ -122,6 +122,7 @@
                     justify-content: center;
                     gap: 8px;
                     max-height: 48px;
+                    @extend .body-copy;
 
                     &:hover{
                         cursor: pointer;
