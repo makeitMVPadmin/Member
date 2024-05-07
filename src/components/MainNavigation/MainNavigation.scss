@@ -8,8 +8,12 @@
     align-content: center;
     position: relative;
     top: 3px;
-    margin: 0 2rem;
-    background-color: #F2F2F2;
+    // background-color: red;
+    position: absolute;
+    width: 80%;
+    margin-left: 13px;
+    top: -35px;
+    left: 0;
     
     &__tab{
         position: relative;
@@ -21,15 +25,17 @@
         border-left: 2px solid #000;
         border-bottom: 2px solid transparent;
         min-height: 33px;
-        max-width: 128px;
+        max-width: 140px;
         width: 100%;
         z-index: 1;
+        cursor: pointer;
         @extend .buttons-copy;
 
         &.isActive{
             background-color: #E1F0FB;
             z-index: 2;
             position: relative;
+            top: 2px;
         }
     }
 }

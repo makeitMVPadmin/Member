@@ -25,6 +25,7 @@
         list-style: none;
         flex-wrap: wrap;
         align-items: center;
+        flex-grow: 1;
         gap: 8px;
         
         &__item{

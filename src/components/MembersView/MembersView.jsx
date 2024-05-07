@@ -136,7 +136,7 @@ export default function MembersView() {
         theme: "dark",
         transition: Bounce,
     });
-    const dummyFilters = ["AB",];
+    const dummyFilters = ["AB","Software Development"];
 
     return (
         <div className='members-view'>

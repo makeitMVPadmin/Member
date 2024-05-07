@@ -1,4 +1,5 @@
 import './ActionModal.scss'
+import Icons from '../../functions/icons_holder';
 
 export default function ActionModal({toggleActionOptions, actionOptionsOpen, toggleEmailModal}){
 
@@ -18,11 +19,11 @@ export default function ActionModal({toggleActionOptions, actionOptionsOpen, tog
                         
                         <button className="action-options__option" onClick={()=>{
                             toggleEmailModal();
-                            toggleActionOptions();}}><img src="" alt="IMG" className="option-image" />Send Email</button>
+                            toggleActionOptions();}}><img src={Icons().IconMail} alt="IMG" className="option-image" />Send Email</button>
                         <hr />
-                        <button className="action-options__option"><img src="" alt="IMG" className="option-image" />Send Newsletter </button>
+                        <button className="action-options__option"><img src={Icons().IconNewsletter} alt="IMG" className="option-image" />Send Newsletter </button>
                         <hr />
-                        <button className="action-options__option"><img src="" alt="IMG" className="option-image" />Send Event</button>
+                        <button className="action-options__option"><img src={Icons().IconEvent} alt="IMG" className="option-image" />Send Event</button>
                     </section>
                 
                 </>

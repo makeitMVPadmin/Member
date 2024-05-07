@@ -19,6 +19,8 @@ import IconLocation from '../assets/icons/icon_location.svg'
 import IconClose from '../assets/icons/icon_close.svg'
 import IconMail from '../assets/icons/icon_mail.svg'
 import IconArrowBack from '../assets/icons/icon_back_arrow.svg'
+import IconNewsletter from '../assets/icons/icon_newsletter.svg'
+import IconEvent from '../assets/icons/icon_event.svg'
 
 function Icons() {
   const icons = {
@@ -42,7 +44,9 @@ function Icons() {
     IconSearch: IconSearch,
     IconClose: IconClose,
     IconMail: IconMail,
-    IconArrowBack: IconArrowBack
+    IconArrowBack: IconArrowBack,
+    IconNewsletter: IconNewsletter,
+    IconEvent: IconEvent
   };
 
   return icons;
