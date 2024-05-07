@@ -31,29 +31,29 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
         items: ['Development', 'Design', 'Data', 'Management', 'Other']
     },];
 
-const resetFilter = ()=>{
-    resetFilteredUsers();
-    setSelectedFilters([]);
-}
+    const resetFilter = () => {
+        resetFilteredUsers();
+        setSelectedFilters([]);
+    }
 
     return (
         <div className={`filter-component`}>
-            
-                <div className="filter-component__header">
-                    <h2>Filters</h2>
-                    <button className="button--reset button" onClick={resetFilter}>Reset Filter</button>
-                </div>
-               <div> 
-                    {filters.map((filter, index) => (
-                        <Filter key={index}
-                                filterUsers={filterUsers}
-                                filterIcon={filter.icon}
-                                filterTitle={filter.title}
-                                filterItems={filter.items}
-                                setSelectedFilters={setSelectedFilters}
-                                selectedFilters={selectedFilters}
-                        />
-                    ))}
+
+            <div className="filter-component__header">
+                <h2>Filters</h2>
+                <button className="button--reset button" onClick={resetFilter}>Reset Filter</button>
+            </div>
+            <div>
+                {filters.map((filter, index) => (
+                    <Filter key={index}
+                            filterUsers={filterUsers}
+                            filterIcon={filter.icon}
+                            filterTitle={filter.title}
+                            filterItems={filter.items}
+                            setSelectedFilters={setSelectedFilters}
+                            selectedFilters={selectedFilters}
+                    />
+                ))}
             </div>
         </div>);
 };

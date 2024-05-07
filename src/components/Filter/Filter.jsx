@@ -15,6 +15,7 @@ export default function Filter({filterUsers, filterIcon, filterTitle, filterItem
         } else {
             updatedFilters = [...selectedFilters, filter]
         }
+        console.log(updatedFilters)
         setSelectedFilters(updatedFilters)
     }
 
