@@ -19,27 +19,33 @@ const randomDate = () => {
     return new Date().setDate(new Date().getDate() - Math.floor(Math.random() * 365));
 }
 
+// Something is causing MembersView to render twice on page load.
 export default function MembersView() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
 
     // START OF MOCK USERS FUNCTIONALITY
-    const numOfMockedUsers = 500;
-    const mockNames = [
-        'John Doe', 'Jane Doe', 'Alice Doe', 'Bob Doe', 'Charlie Doe', 'David Doe', 'Eve Doe', 'Frank Doe', 'Grace Doe', 'Heidi Doe', 'Ivy Doe', 'Jack Doe', 'Karl Doe', 'Liam Doe', 'Mia Doe', 'Nina Doe', 'Oscar Doe', 'Pam Doe', 'Quinn Doe', 'Ruth Doe', 'Sam Doe', 'Tina Doe', 'Uma Doe', 'Vic Doe', 'Will Doe', 'Xena Doe', 'Yara Doe', 'Zara Doe'
-    ];
+    const numOfMockedUsers = 1000;
+    const mockFirstNames = [
+        'John', 'Jane', 'Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Heidi', 'Ivy', 'Jack', 'Karl', 'Liam', 'Mia', 'Nina', 'Oscar', 'Pam', 'Quinn', 'Ruth', 'Sam', 'Tina', 'Uma', 'Vic', 'Will', 'Xena', 'Yara', 'Zara'
+    ]
+    const mockLastNames = [
+        'Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark', 'Rodriguez', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Hernandez', 'King', 'Wright', 'Lopez', 'Hill', 'Scott', 'Green', 'Adams', 'Baker', 'Gonzalez', 'Nelson', 'Carter', 'Mitchell', 'Perez', 'Roberts', 'Turner', 'Phillips', 'Campbell', 'Parker', 'Evans', 'Edwards', 'Collins', 'Stewart', 'Sanchez', 'Morris', 'Rogers', 'Reed', 'Cook', 'Morgan', 'Bell', 'Murphy', 'Bailey', 'Rivera', 'Cooper', 'Richardson', 'Cox', 'Howard', 'Ward', 'Torres', 'Peterson', 'Gray', 'Ramirez', 'James', 'Watson', 'Brooks', 'Kelly', 'Sanders', 'Price', 'Bennett', 'Wood', 'Barnes', 'Ross', 'Henderson', 'Cole', 'Jenkins', 'Perry', 'Powell', 'Long', 'Patterson', 'Hughes', 'Flores', 'Washington', 'Butler', 'Simmons', 'Foster', 'Gonzales', 'Bryant', 'Alexander', 'Russell', 'Griffin', 'Diaz', 'Hayes',
+    ]
     const mockRoles = ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'Data Engineering', 'Other'];
     const mockLocations = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
     const mockInterests = ['Development', 'Design', 'Data', 'Management', 'Other'];
-    const mockUsers = [];
 
     useEffect(() => {
+        const mockUsers = [];
         for (let i = 0; i < numOfMockedUsers; i++) {
+            const firstNamesRandomIndex = Math.floor(Math.random() * mockFirstNames.length);
+            const lastNamesRandomIndex = Math.floor(Math.random() * mockLastNames.length);
             mockUsers.push({
                 id: i,
-                firstName: mockNames[Math.floor(Math.random() * mockNames.length)].split(' ')[0],
-                lastName: mockNames[Math.floor(Math.random() * mockNames.length)].split(' ')[1],
-                email: `${mockNames[Math.floor(Math.random() * mockNames.length)].split(' ')[0].toLowerCase()}${Math.floor(Math.random() * 1000)}@example.com`,
+                firstName: mockFirstNames[firstNamesRandomIndex],
+                lastName: mockLastNames[lastNamesRandomIndex],
+                email: `${mockFirstNames[firstNamesRandomIndex].toLowerCase()}${mockLastNames[lastNamesRandomIndex][0].toLowerCase()}${Math.floor(Math.random() * 1000)}@example.com`,
                 discipline: mockRoles[Math.floor(Math.random() * mockRoles.length)],
                 locationCity: mockLocations[Math.floor(Math.random() * mockLocations.length)],
                 interest: mockInterests[Math.floor(Math.random() * mockInterests.length)],
@@ -49,6 +55,7 @@ export default function MembersView() {
         }
         setUsers(mockUsers);
         setFilteredUsers(mockUsers);
+        setSearchedUsers(mockUsers)
         setLoading(false);
     }, []);
     // END OF MOCK USERS FUNCTIONALITY
@@ -58,6 +65,7 @@ export default function MembersView() {
     //         const fetchedUsers = await getUsers();
     //         setUsers(fetchedUsers);
     //         setFilteredUsers(fetchedUsers);
+    //         setSearchedUsers(mockUsers)
     //         setLoading(false);
     //     };
     //     fetchUsers();
@@ -65,7 +73,6 @@ export default function MembersView() {
 
     // TODO: Consider adding useMemo or useCallback to filterUsers and searchForUsers to memoize their filters.
     const [filteredUsers, setFilteredUsers] = useState([]);
-    // const [selectedFilters, setSelectedFilters] = useState([])
     const filterUsers = (selectedFilters) => {
         if (!selectedFilters.length) {
             return setFilteredUsers(users);
@@ -88,9 +95,9 @@ export default function MembersView() {
             for (let filter of otherFilters) {
                 if (filter === 'Active' && userLastActiveDate < currentDate - convertDaysToMilliseconds(30)) return false;
                 if (filter === 'Inactive' && userLastActiveDate >= currentDate - convertDaysToMilliseconds(30)) return false;
-                if (filter === 'Today' && userBirthdayDate !== currentDate) return false;
-                if (filter === 'This Week' && (userBirthdayDate < currentDate || userBirthdayDate > currentDate + convertDaysToMilliseconds(7))) return false;
-                if (filter === 'This Month' && (userBirthdayDate < currentDate || userBirthdayDate > currentDate + convertDaysToMilliseconds(30))) return false;
+                if (filter === 'Today' && (userBirthdayDate.getDate() !== currentDate.getDate() || userBirthdayDate.getMonth() !== currentDate.getMonth())) return false;
+                if (filter === 'This Week' && (userBirthdayDate < currentDate - convertDaysToMilliseconds(7))) return false;
+                if (filter === 'This Month' && (userBirthdayDate < currentDate - convertDaysToMilliseconds(30))) return false;
                 if (filter !== 'Active' && filter !== 'Inactive' && filter !== 'Today' && filter !== 'This Week' && filter !== 'This Month' && user.discipline !== filter && user.locationCity !== filter && user.interest !== filter) return false;
             }
             return true;
@@ -100,20 +107,27 @@ export default function MembersView() {
         setFilteredUsers(users);
     }
 
-    // TODO: Make search and filter play nice.
+    const [searchedUsers, setSearchedUsers] = useState([])
     const searchForUsers = (searchInput) => {
         const searchTerm = searchInput.toLowerCase().trim()
+        if (!searchTerm) {
+            return setSearchedUsers(filteredUsers)
+        }
 
-        const searchedUsers = filteredUsers.filter(user => (
+        const searchedForUsers = filteredUsers.filter(user => (
                 user.firstName?.toLowerCase().includes(searchTerm)
                 || user.lastName?.toLowerCase().includes(searchTerm)
                 || user.email?.toLowerCase().includes(searchTerm)
             )
         );
-        setFilteredUsers(searchedUsers)
+        setSearchedUsers(searchedForUsers)
     }
 
-    // TODO: membersSelected does not update to remove users when filteredUsers changes.
+    // TODO: There's a weird bug here where the displayedUsers array gets stuck when filters are changed and the search bar is used.
+    // For example, if a user is filtered for and then the search is changed to exclude that user, the user remains displayed.
+    const displayedUsers = filteredUsers.filter(user => searchedUsers.includes(user));
+
+    // TODO: membersSelected does not update to remove users when displayedUsers changes.
     // For example, if a user is selected and then the filters are changed to exclude that user, the user remains selected.
     const [membersSelected, setMembersSelected] = useState([]);
     const [emailOpen, setEmailOpen] = useState(false);
@@ -136,7 +150,7 @@ export default function MembersView() {
         theme: "dark",
         transition: Bounce,
     });
-    const dummyFilters = ["AB","Software Development"];
+    const dummyFilters = ["AB", "Software Development"];
 
     return (
         <div className='members-view'>
@@ -151,21 +165,23 @@ export default function MembersView() {
                     <div className="member-list__top">
                         <div className="member-list__count-wrapper">
                             <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
-                            <h2 className="member-list__count">{membersSelected.length ? `Members (${membersSelected.length})` : `Members (${filteredUsers.length})`}</h2>
+                            <h2 className="member-list__count">{membersSelected.length >= 1 ? `Members (${membersSelected.length})` : `Members (${displayedUsers.length})`}</h2>
                         </div>
                         <SearchBar searchForUsers={searchForUsers}/>
                     </div>
                     {!loading &&
-                        <MembersList users={filteredUsers} membersSelected={membersSelected}
+                        <MembersList users={displayedUsers} membersSelected={membersSelected}
                                      setMembersSelected={setMembersSelected}/>
                     }
-                    
-                    <ActionModal actionOptionsOpen={actionOptionsOpen} toggleActionOptions={toggleActionOptions} toggleEmailModal={toggleEmailModal}/>
+
+                    <ActionModal actionOptionsOpen={actionOptionsOpen} toggleActionOptions={toggleActionOptions}
+                                 toggleEmailModal={toggleEmailModal}/>
                 </div>
             </div>
-            {emailOpen && 
-                <EmailModal emailOpen={emailOpen} handleModal={toggleEmailModal} notify={notify} filtersApplied={dummyFilters}
-                membersSelected={membersSelected}/>
+            {emailOpen &&
+                <EmailModal emailOpen={emailOpen} handleModal={toggleEmailModal} notify={notify}
+                            filtersApplied={dummyFilters}
+                            membersSelected={membersSelected}/>
             }
         </div>
     )
