@@ -61,6 +61,8 @@
 
                 &:hover{
                     cursor: pointer;
+                    background-color: $color-mvp-white;
+                    color: $color-mvp-dark-blue;
                 }
             }
         }
@@ -126,6 +128,12 @@
 
                     &:hover{
                         cursor: pointer;
+                        background-color: $color-mvp-black;
+                        color: $color-mvp-yellow;
+
+                        & .email-icon {
+                            filter: invert(89%) sepia(32%) saturate(1107%) hue-rotate(336deg) brightness(101%) contrast(102%);
+                        }
                     }
                 }
             }            
