@@ -109,12 +109,9 @@ export default function MembersView() {
 
     const [searchedUsers, setSearchedUsers] = useState([])
     const searchForUsers = (searchInput) => {
-        const searchTerm = searchInput.toLowerCase().trim()
-        if (!searchTerm) {
-            return setSearchedUsers(filteredUsers)
-        }
+        const searchTerm = searchInput.toLowerCase().trim();
 
-        const searchedForUsers = filteredUsers.filter(user => (
+        const searchedForUsers = users.filter(user => (
                 user.firstName?.toLowerCase().includes(searchTerm)
                 || user.lastName?.toLowerCase().includes(searchTerm)
                 || user.email?.toLowerCase().includes(searchTerm)
@@ -123,9 +120,7 @@ export default function MembersView() {
         setSearchedUsers(searchedForUsers)
     }
 
-    // TODO: There's a weird bug here where the displayedUsers array gets stuck when filters are changed and the search bar is used.
-    // For example, if a user is filtered for and then the search is changed to exclude that user, the user remains displayed.
-    const displayedUsers = filteredUsers.filter(user => searchedUsers.includes(user));
+    const displayedUsers = users.filter(user => filteredUsers.includes(user) && searchedUsers.includes(user));
 
     // TODO: membersSelected does not update to remove users when displayedUsers changes.
     // For example, if a user is selected and then the filters are changed to exclude that user, the user remains selected.
