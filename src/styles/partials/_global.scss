@@ -158,6 +158,11 @@ input {
     height: 40px;
     cursor: pointer;
   }
+
+    &--reset:hover {
+        background-color: $color-mvp-yellow;
+        color: $color-mvp-black;
+    }
 }
 
 .capitalize-first {

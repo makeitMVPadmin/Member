@@ -31,6 +31,10 @@
         cursor: pointer;
         @extend .buttons-copy;
 
+        &:hover:not(.isActive){
+            background-color: #E1F0FB;
+        }
+
         &.isActive{
             background-color: #E1F0FB;
             z-index: 2;
