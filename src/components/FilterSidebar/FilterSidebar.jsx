@@ -10,9 +10,7 @@ import statusFilterIcon from '../../assets/icons/icon_filter_status.svg';
 import birthdayFilterIcon from '../../assets/icons/icon_filter_birthday.svg';
 import interestFilterIcon from '../../assets/icons/icon_filter_interest.svg';
 
-const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
-    const [selectedFilters, setSelectedFilters] = useState([])
-
+const FilterSidebar = ({filterUsers, resetFilteredUsers, selectedFilters, setSelectedFilters}) => {
     const filters = [{
         title: 'Role',
         icon: `${roleFilterIcon}`,
@@ -31,17 +29,12 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers}) => {
         items: ['Development', 'Design', 'Data', 'Management', 'Other']
     },];
 
-    const resetFilter = () => {
-        resetFilteredUsers();
-        setSelectedFilters([]);
-    }
-
     return (
         <div className={`filter-component`}>
 
             <div className="filter-component__header">
                 <h2>Filters</h2>
-                <button className="button--reset button" onClick={resetFilter}>Reset Filter</button>
+                <button className="button--reset button" onClick={resetFilteredUsers}>Reset Filter</button>
             </div>
             <div>
                 {filters.map((filter, index) => (
