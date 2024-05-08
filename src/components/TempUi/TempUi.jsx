@@ -16,8 +16,8 @@ export default function TempUi(){
                         <img src={Icons().IconDashboard} alt="Home Icon" className="icon-pair__icon" />
                         <p className="icon-pair__label">Home</p>
                     </div>
-                    <div className="icon-pair">
-                        <img src={Icons().IconMembers} alt="Community Icon" className="icon-pair__icon icon" />
+                    <div className="icon-pair icon-pair--active">
+                        <img src={Icons().IconMembers} alt="Community Icon" className="icon-pair__icon" />
                         <p className="icon-pair__label">Communities</p>
                     </div>
                     <div className="icon-pair">

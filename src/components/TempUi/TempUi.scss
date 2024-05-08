@@ -6,9 +6,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
-    margin: 0 1rem;
-    // width: 100vw;
+    padding: 0 1rem;
+    position:fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    z-index: 10;
+
     .left-container{
         display: flex;
         align-items: center;
@@ -31,6 +35,12 @@
                 font-family: "Gilroy";
                 font-size: 14px;
                 line-height: 14px;
+            }
+
+            &--active {
+                color: $color-mvp-dark-blue;
+                padding: 0.75rem 0;
+                border-bottom: 2px solid $color-mvp-dark-blue;
             }
         }
     }
@@ -63,13 +73,15 @@
     background-color: #C8E7FB;
     justify-content: center;
     height: 180px;
+    margin-top: 3.5rem;
+
     .back-nav{
         display: flex;
         height: 36px;
         width: 100%;
         align-items: center;
         margin-left: 1rem;
-        // justify-content: ;
+
         &__return-arrow{
             margin-right: 0.5rem;
         }
@@ -149,7 +161,7 @@
 
                     &__image{
                         width: 24px;
-                        // height: 16px;
+                        filter:brightness(0);
                     }
                     &__text{
 
