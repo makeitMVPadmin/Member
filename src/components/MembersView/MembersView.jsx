@@ -99,6 +99,7 @@ export default function MembersView() {
     };
     const resetFilteredUsers = () => {
         setFilteredUsers(users);
+        setSelectedFilters([])
     }
 
     const [searchedUsers, setSearchedUsers] = useState([])
@@ -118,6 +119,7 @@ export default function MembersView() {
 
     // TODO: membersSelected does not update to remove users when displayedUsers changes.
     // For example, if a user is selected and then the filters are changed to exclude that user, the user remains selected.
+    const [selectedFilters, setSelectedFilters] = useState([])
     const [membersSelected, setMembersSelected] = useState([]);
     const [emailOpen, setEmailOpen] = useState(false);
     const toggleEmailModal = () => {
@@ -149,7 +151,7 @@ export default function MembersView() {
                 hideProgressBar
             />
             <div className="member-component-wrapper">
-                <FilterSidebar filterUsers={filterUsers} resetFilteredUsers={resetFilteredUsers}/>
+                <FilterSidebar resetFilteredUsers={resetFilteredUsers} selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} filterUsers={filterUsers} resetFilteredUsers={resetFilteredUsers}/>
                 <div className='members-container'>
                     <div className="member-list__top">
                         <div className="member-list__count-wrapper">
@@ -169,7 +171,7 @@ export default function MembersView() {
             </div>
             {emailOpen &&
                 <EmailModal emailOpen={emailOpen} handleModal={toggleEmailModal} notify={notify}
-                            filtersApplied={dummyFilters}
+                            filtersApplied={selectedFilters}
                             membersSelected={membersSelected}/>
             }
         </div>
