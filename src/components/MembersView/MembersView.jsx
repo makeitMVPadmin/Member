@@ -156,7 +156,7 @@ export default function MembersView() {
                     <div className="member-list__top">
                         <div className="member-list__count-wrapper">
                             <img src={Icons().IconMembers} alt="meeples" className="member-list__icon"></img>
-                            <h2 className="member-list__count">{membersSelected.length >= 1 ? `Members (${membersSelected.length})` : `Members (${displayedUsers.length})`}</h2>
+                            <h2 className="member-list__count">{membersSelected.length >= 1 ? `Members Selected (${membersSelected.length})` : `Members (${displayedUsers.length})`}</h2>
                         </div>
                         <SearchBar searchForUsers={searchForUsers}/>
                     </div>

@@ -1,29 +1,34 @@
 @use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
 .community-manager{
-    width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 0 auto;
-    max-width: 1150px;
     position: relative;
-    top: -5rem;
-    // position: relative;
-    // top: 0;
+    top: -2rem;
     @extend .body-copy;
+
+    @include mobile-only {
+        margin: 0 1rem;
+    }
+
+    @include tablet-plus{
+        margin: 0 2.5rem;
+    }
 
     .view-container{
         background-color: #E1F0FB;
-        min-height: 525px;
-        min-width: 1140px;
         border-radius: 8px;
         border: 2px solid #000;
         z-index: 1;
         position: relative;
         top: 0;
-        // position: relative;
-        // top: 0;
-        // margin: 0 24px;
+        min-height: 60vh;
+
+        // @include tablet-plus {
+        //     min-height: 525px;
+        //     min-width: 1140px;
+        // }
     }
 
 }

@@ -31,6 +31,7 @@
         margin-right: 0.5rem;
         height: 20px;
         width:20px;
+        filter:brightness(0)
     }
 
     &__header {
@@ -38,8 +39,9 @@
         flex-direction: row;
         list-style-type: none;
         color: #505050;
-        margin: 0.5rem 1rem;
+        margin: 0.5rem 0;
         overflow: hidden;
+        border-bottom: 2px solid #505050;
 
         @include mobile-only {
             margin: 0.5rem 0;
@@ -56,6 +58,7 @@
             black calc(100% - 3rem), 
             transparent 100%);
         padding-bottom: 3rem;
+        margin-bottom: 3rem;
 
         &::-webkit-scrollbar {
             width: 1rem;
@@ -75,17 +78,19 @@
 
 .member-card__background {
     border-bottom: 1px solid #828282;
-    margin: 0 1rem;
-        @include mobile-only {
-            margin: 0;
-        }
         
-        :hover, :active {
+    &--checked {
+        border-bottom: 1px solid #828282;
         background-color: #C8EAFF;
-
-        
     }
+    
+    &:hover {
+    background-color: #C8EAFF;
     }
+    
+   
+}
+    
 
 .member-card {
     display: flex;

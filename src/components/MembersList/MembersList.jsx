@@ -50,7 +50,7 @@ export default function MembersList({ users, membersSelected, setMembersSelected
         {/* List out individual members  maybe change key to user.id*/}
         <div className="member-list__container">
             {users.map((user,index)=> 
-            (<div className="member-card__background" key={index}>
+            (<div className={`member-card__background ${membersSelected.includes(user.email) ? "member-card__background--checked" : ""}`} key={index}>
                     <ul className="member-card body-copy">
                         <li className="checkbox column--short"><input type="checkbox"
                                                                                    checked={selectAll || membersSelected.includes(user.email)}

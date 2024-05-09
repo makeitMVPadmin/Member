@@ -88,7 +88,7 @@ input {
   }
 
   &::placeholder {
-    color: #000;
+    color: #505050;
   }
 
   &.search-bar {
@@ -101,6 +101,7 @@ input {
   &[type="checkbox"] {
     width: 20px;
     accent-color:$color-mvp-pale-blue;
+    cursor: pointer;
   }
 }
 

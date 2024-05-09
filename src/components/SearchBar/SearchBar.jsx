@@ -9,7 +9,7 @@ export default function SearchBar({searchForUsers}) {
     return (
         <div className='search-bar__container'>
             <img src={iconSearch} className="search-icon" alt="search-icon" />
-            <input type="text" className="search-bar" onChange={handleSearch} placeholder='Search'/>
+            <input type="text" className="search-bar" onChange={handleSearch} placeholder='Search by Name'/>
         </div>
     )
 }
