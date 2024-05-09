@@ -5,7 +5,7 @@
     justify-content: center;
     flex-direction: column;
     position: relative;
-    top: -5rem;
+    top: -2rem;
     @extend .body-copy;
 
     @include mobile-only {
@@ -23,6 +23,7 @@
         z-index: 1;
         position: relative;
         top: 0;
+        min-height: 60vh;
 
         // @include tablet-plus {
         //     min-height: 525px;
