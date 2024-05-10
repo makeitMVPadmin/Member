@@ -12,8 +12,10 @@
     .members-container{
         margin-left: 20px;
         flex: 1;
-
-        
+        height: 100%;
+        position: relative;
+        padding: 2rem 1rem;
+        overflow: hidden;
     }
 
 }
@@ -25,9 +27,4 @@
     overflow-y: hidden;
     height: 100%;
     top: 0;
-}
-
-.members-container {
-    padding: 2rem 1rem;
-    overflow: hidden;
 }

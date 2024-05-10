@@ -49,8 +49,9 @@
     }
 
     &__container {
-        height: 60vh;
+        height: 80%;
         overflow-y: scroll;
+        overscroll-behavior: contain;
         scrollbar-width:auto;
         scrollbar-color: $color-mvp-light-blue transparent;
         mask-image: linear-gradient(
