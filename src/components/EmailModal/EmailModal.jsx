@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../EmailModal/EmailModal.scss";
 import FilterSummary from "../FilterSummary/FilterSummary";
 import Icons from "../../functions/icons_holder";
-import { useEffect } from "react";
 
 export default function EmailModal({
     handleModal,

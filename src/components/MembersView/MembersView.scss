@@ -7,6 +7,7 @@
     // top: -20px;
     overflow:hidden;
     // height: 50vh;
+    height: 800px;
     
     .members-container{
         margin-left: 20px;
@@ -21,6 +22,8 @@
     display: flex;
     flex-direction: row;
     position: relative;
+    overflow-y: hidden;
+    height: 100%;
     top: 0;
 }
 

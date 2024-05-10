@@ -99,7 +99,8 @@ input {
   }
 
   &[type="checkbox"] {
-    width: 20px;
+    width: 18px;
+    height: 18px;
     accent-color:$color-mvp-pale-blue;
     cursor: pointer;
   }

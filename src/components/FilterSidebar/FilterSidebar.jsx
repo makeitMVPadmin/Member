@@ -36,17 +36,19 @@ const FilterSidebar = ({filterUsers, resetFilteredUsers, selectedFilters, setSel
                 <h2>Filters</h2>
                 <button className="button--reset button" onClick={resetFilteredUsers}>Reset Filter</button>
             </div>
-            <div>
-                {filters.map((filter, index) => (
-                    <Filter key={index}
-                            filterUsers={filterUsers}
-                            filterIcon={filter.icon}
-                            filterTitle={filter.title}
-                            filterItems={filter.items}
-                            setSelectedFilters={setSelectedFilters}
-                            selectedFilters={selectedFilters}
-                    />
-                ))}
+            <div className="filter-component__filter-list">
+                <div className="filter-sleeve">
+                    {filters.map((filter, index) => (
+                        <Filter key={index}
+                                filterUsers={filterUsers}
+                                filterIcon={filter.icon}
+                                filterTitle={filter.title}
+                                filterItems={filter.items}
+                                setSelectedFilters={setSelectedFilters}
+                                selectedFilters={selectedFilters}
+                        />
+                    ))}
+                </div>
             </div>
         </div>);
 };

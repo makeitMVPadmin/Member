@@ -1,11 +1,10 @@
 import './MembersView.scss';
 import {useEffect, useState} from "react";
-import {getUsers} from "../../functions/users";
+// import {getUsers} from "../../functions/users";
 import EmailModal from '../EmailModal/EmailModal';
 import MembersList from '../MembersList/MembersList';
 import SearchBar from '../SearchBar/SearchBar';
 import FilterSidebar from '../FilterSidebar/FilterSidebar';
-import FilterSummary from '../FilterSummary/FilterSummary';
 import Icons from '../../functions/icons_holder';
 import {ToastContainer, toast, Bounce} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -141,7 +140,6 @@ export default function MembersView() {
         theme: "dark",
         transition: Bounce,
     });
-    const dummyFilters = ["AB", "Software Development"];
 
     return (
         <div className='members-view'>
@@ -151,7 +149,7 @@ export default function MembersView() {
                 hideProgressBar
             />
             <div className="member-component-wrapper">
-                <FilterSidebar resetFilteredUsers={resetFilteredUsers} selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} filterUsers={filterUsers} resetFilteredUsers={resetFilteredUsers}/>
+                <FilterSidebar resetFilteredUsers={resetFilteredUsers} selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} filterUsers={filterUsers}/>
                 <div className='members-container'>
                     <div className="member-list__top">
                         <div className="member-list__count-wrapper">

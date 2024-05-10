@@ -5,15 +5,43 @@
   color: #fff;
   border-radius: 0.25rem 0 0 0.25rem;
   width: 15.625rem;
-  padding: 2rem 1rem;
-  overflow-y: hidden;
+  padding: 32px 16px 32px 4px;
+//   overflow-y: hidden;
   min-width: 12.75rem;
+  
 
   &__header {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 1.5rem;
+    // position:sticky;
+    // top: 0;
+    background-color: $color-mvp-black;
+  }
+
+  &__filter-list{
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+    height: 92%;
+    transform: scaleX(-1);
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $color-mvp-white;
+     }
+    &::-webkit-scrollbar {
+        width: 5px; /* Set the width of the scrollbar */
+        background-color: $color-mvp-black; /* Set the background color of the scrollbar */
+        direction: ltr;
+        // position: relative;
+        // left: -20px; /* Position the scrollbar on the left of the element */
+     }
+
+     .filter-sleeve{
+        transform: scaleX(-1);
+        position: relative;
+        left: -8px;
+     }
   }
 }
 
