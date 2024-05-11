@@ -65,7 +65,7 @@ details {
     display: block;
     margin-bottom: 10px;
     position: relative;
-    padding-left: 25px;
+    padding-left: 40px;
 
     //&::before {
     //  content: '';
@@ -97,7 +97,7 @@ details {
     input[type="checkbox"] {
       position: absolute;
       accent-color: $color-mvp-red;
-      left: 0;
+      left: 14px;
       top: 50%;
       transform: translateY(-50%);
 

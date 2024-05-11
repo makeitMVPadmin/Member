@@ -5,6 +5,9 @@
     justify-content: center;
     flex-direction: column;
     position: relative;
+    max-width: 1280px;
+    min-width: 100px;
+    margin: 0 13vw;
     top: -2rem;
     @extend .body-copy;
 

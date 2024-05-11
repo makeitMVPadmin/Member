@@ -6,15 +6,21 @@
     // position: relative;
     // top: -20px;
     overflow:hidden;
+    // max-width: 1280px;
+    // width: 100%;
     // height: 50vh;
     height: 800px;
     
     .members-container{
-        margin-left: 20px;
-        flex: 1;
+        // margin-left: 20px;
+        // flex: 1;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
         height: 100%;
         position: relative;
-        padding: 2rem 1rem;
+        padding: 32px 32px;
         overflow: hidden;
     }
 

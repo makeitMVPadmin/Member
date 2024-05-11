@@ -36,40 +36,46 @@ export default function TempUi(){
             </nav>
             <section className="hero">
                 <div className="back-nav">
-                    <img src={Icons().IconArrowBack} alt="" className="back-nav__return-arrow" />
+                    <img src={Icons().IconArrowBack} alt="back arrow" className="back-nav__return-arrow" />
                     <p className="back-nav__text">Back to Communities</p>
                 </div>
-                <img src={notebook} alt="" className="community-image" />
-                <section className="community-info">
-                    <div className="title-section">
-                        <h1 className="title-section__title">Product Pitchers</h1>
-                        <img src={Icons().IconEdit} alt="edit" className="title-section__icon title-section__icon--edit" />
-                        <img src={Icons().IconDelete} alt="delete" className="title-section__icon "/>
+                <section className="community-wrapper">
+                    <div className="info-wrapper">
+                        <img src={notebook} alt="notebook" className="community-image" />
+                        <section className="community-info">
+                            <div className="title-section">
+                                <h1 className="title-section__title">Product Pitchers</h1>
+                                <img src={Icons().IconEdit} alt="edit" className="title-section__icon --edit" />
+                                <img src={Icons().IconDelete} alt="delete" className="title-section__icon "/>
+                            </div>
+                            <div className="title-sub-info">
+                                <div className="title-sub-info__left-container">
+                                    <div className="tag">
+                                        <img src={Icons().IconLocation} alt="pin" className="tag__icon" />
+                                        <p className="tag__text">San Fransisco</p>
+                                    </div>
+                                    <div className="tag">
+                                        <img src={Icons().IconLocation} alt="pin" className="tag__icon" />
+                                        <p className="tag__text">Virtual</p>
+                                    </div>
+                                </div>
+                                <div className="title-sub-info__right-container">
+                                    <div className="title-icon">
+                                        <img src={Icons().IconMembers} alt="edit" className="title-icon__image" />
+                                        <p className="title-icon__text"> 1000 members</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
-                    <div className="title-sub-info">
-                        <div className="title-sub-info__left-container">
-                            <div className="tag">
-                                <img src={Icons().IconLocation} alt="pin" className="tag__icon" />
-                                <p className="tag__text">San Fransisco</p>
-                            </div>
-                            <div className="tag">
-                                <img src={Icons().IconLocation} alt="pin" className="tag__icon" />
-                                <p className="tag__text">Virtual</p>
-                            </div>
-                        </div>
-                        <div className="title-sub-info__right-container">
-                            <div className="title-icon">
-                                <img src={Icons().IconMembers} alt="edit" className="title-icon__image" />
-                                <p className="title-icon__text"> 1000 members</p>
-                            </div>
-                        </div>
-                    </div>
+                    <section className="description">
+                        <h3 className="description__header">Description</h3>
+                        <p className="description__text">Join our Product Enthusiasts Club for exclusive insights, discounts, and community. Stay ahead with the latest trends and meet fellow product aficionados. Your gateway to product innovation!</p>
+                    </section>
                 </section>
             </section>
-            <section className="description">
-                <h3 className="description__header">Description</h3>
-                <p className="description__text">Join our Product Enthusiasts Club for exclusive insights, discounts, and community. Stay ahead with the latest trends and meet fellow product aficionados. Your gateway to product innovation!</p>
-            </section>
+            <div className="grey-background">
+            </div>
         </>
     )
 }

@@ -27,9 +27,9 @@ export default function Filter({filterUsers, filterIcon, filterTitle, filterItem
         <div className="filter">
             <details>
                 <summary onClick={changeChevron}>
-                    <img src={filterIcon} alt=""/>
+                    <img src={filterIcon} alt="filter"/>
                     <h3>{filterTitle}</h3>
-                    <img src={chevronIcon} alt="" className={isOpened ? "chevron--up" : "chevron"}/>
+                    <img src={chevronIcon} alt="chevron" className={isOpened ? "chevron--up" : "chevron"}/>
                 </summary>
                 {filterItems.map((filter, index) => (
                     <div key={index}>

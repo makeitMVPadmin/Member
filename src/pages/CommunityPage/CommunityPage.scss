@@ -1,0 +1,14 @@
+@use '../../styles/partials/global';
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+@use '../../styles/partials/typography';
+
+.CommunityPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    outline: 400px solid darkgrey;
+}
