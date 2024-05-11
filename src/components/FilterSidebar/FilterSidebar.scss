@@ -28,7 +28,7 @@
     transform: scaleX(-1);
 
     &::-webkit-scrollbar-thumb {
-        background-color: $color-mvp-white;
+        background-color: $color-mvp-light-blue;
      }
     &::-webkit-scrollbar {
         width: 5px; /* Set the width of the scrollbar */
