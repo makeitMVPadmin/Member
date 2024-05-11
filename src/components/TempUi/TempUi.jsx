@@ -52,7 +52,7 @@ export default function TempUi(){
                                 <div className="title-sub-info__left-container">
                                     <div className="tag">
                                         <img src={Icons().IconLocation} alt="pin" className="tag__icon" />
-                                        <p className="tag__text">San Fransisco</p>
+                                        <p className="tag__text">Alberta</p>
                                     </div>
                                     <div className="tag">
                                         <img src={Icons().IconLocation} alt="pin" className="tag__icon" />
