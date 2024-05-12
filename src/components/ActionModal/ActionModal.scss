@@ -1,0 +1,91 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.button-styling {
+
+}
+
+
+.action-modal {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: rgba(49, 49, 49, 0.40);
+  }
+
+  .action-options {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+    height: min-content;
+    border-radius: 8px;
+    background-color: $color-mvp-white;
+    border: $color-mvp-black 1px solid;
+    z-index: 3;
+
+
+    &__option {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      height: 36px;
+      position: relative;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &:last-child {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+
+      &:first-child {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+
+      &:hover {
+        background-color: $color-mvp-yellow;
+      }
+    }
+  }
+
+  .action-button {
+    // position: relative;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    min-width: 140px;
+    padding: 8px;
+    border: 2px solid $color-mvp-black;
+    border-radius: 8px;
+    background-color: $color-mvp-yellow;
+    cursor: pointer;
+    @extend .body-copy;
+    // align-self: flex-end;
+    justify-content: center;
+    // gap: 8px;
+
+    &:hover {
+      background-color: $color-mvp-black;
+      color: $color-mvp-yellow;
+    }
+  }
+}
