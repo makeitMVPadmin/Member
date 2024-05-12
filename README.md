@@ -1,3 +1,4 @@
+
 <a name="MakeitMVP Data Project"></a>
 
 # 📗 Table of Contents
@@ -30,7 +31,6 @@ This project is to display data visualizations for different community groups.
 
 ## 🛠 Built With <a name="VS Code">VS Code</a>
 
-### Tech Stack <a name="VS Code"></a>
 
 - GitHub/Git
 - VS Code
@@ -41,6 +41,7 @@ This project is to display data visualizations for different community groups.
 
 ### Key Features <a name="key-features"></a>
 
+
 - Data visualizations for member, location and industry
 - Search bar
 - PDF export
@@ -49,6 +50,7 @@ This project is to display data visualizations for different community groups.
 
 
 ### Future Features <a name="future-features"></a>
+
 
 - Styles
 - Responsive web design
@@ -73,10 +75,7 @@ So make sure you have VS code installed beforehand, you can install VS code thro
 
 Clone this repository to your desired folder on your laptop:
 ```
-  cd "your-folder-name"
 
-  git@github.com:makeitMVPadmin/Data.git
-```
 
 
 ### Usage
@@ -84,9 +83,6 @@ Clone this repository to your desired folder on your laptop:
 To open the project, use your preferred explorer and open the index.html file. Or, you can right-click the index.html file to open in the live server with the localhost.
 
 
-### Deployment
-
-You can deploy this project using VS Code terminal with using related command.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
