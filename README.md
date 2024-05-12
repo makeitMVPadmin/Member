@@ -72,9 +72,11 @@ So make sure you have VS code installed beforehand, you can install VS code thro
 ### Setup
 
 Clone this repository to your desired folder on your laptop:
-
+```
   cd "your-folder-name"
+
   git@github.com:makeitMVPadmin/Data.git
+```
 
 
 ### Usage
