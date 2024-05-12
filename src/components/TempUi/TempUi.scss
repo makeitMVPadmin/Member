@@ -107,6 +107,7 @@
             max-width: 1280px;
             justify-content: center;
             align-self: center;
+            
 
             
         .community-image{
@@ -115,7 +116,7 @@
             border: 1px solid $color-mvp-black;
             border-radius: 8px;
             // align-self: flex-end;
-            // margin-right: 0.5rem;
+            margin-right: 0.5rem;
             position:relative;
             top: 10px;
         }
