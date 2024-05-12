@@ -1,0 +1,158 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.member-list {
+    &__top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @include mobile-only {
+            flex-direction: column;
+        }
+    }
+
+    &__count-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @include mobile-only {
+            margin: 0.5rem 0; 
+        }
+    }
+ 
+    &__count {
+        font-size: 14px;
+        font-family: "Corben";
+    }
+
+    &__icon {
+        margin-right: 0.5rem;
+        height: 20px;
+        width:20px;
+        filter:brightness(0)
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        color: #505050;
+        margin: 0.5rem 0;
+        overflow: hidden;
+        border-bottom: 2px solid #505050;
+
+        @include mobile-only {
+            margin: 0.5rem 0;
+        }
+    }
+
+    &__container {
+        height: 60vh;
+        overflow-y: scroll;
+        scrollbar-width:auto;
+        scrollbar-color: $color-mvp-light-blue transparent;
+        mask-image: linear-gradient(
+            to bottom, 
+            black calc(100% - 3rem), 
+            transparent 100%);
+        padding-bottom: 3rem;
+        margin-bottom: 3rem;
+
+        &::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $color-mvp-light-blue;
+        } 
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    }
+}
+
+
+
+.member-card__background {
+    border-bottom: 1px solid #828282;
+        
+    &--checked {
+        border-bottom: 1px solid #828282;
+        background-color: #C8EAFF;
+    }
+    
+    &:hover {
+    background-color: #C8EAFF;
+    }
+    
+   
+}
+    
+
+.member-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    
+    &__userinfo-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__userinfo-subcontainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__avatar {
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.75rem;
+
+        &--default {
+        background-color: $color-mvp-white;
+        object-position: 0 0.5rem;
+        object-fit: fill;
+        filter: opacity(0.5)}
+    }
+
+    &__email {
+        color: #505050;
+        overflow: auto;
+    }
+}
+
+.column {
+    min-width: 5rem;
+    padding: 0.5rem;
+    overflow-x: hidden;
+
+    @include tablet-plus {
+        width: 18vw;
+        max-width: 11rem;
+    }
+
+    &--short {
+        width: 2rem;
+        padding: 0.5rem;
+    }
+
+    &--userinfo {
+        min-width: 15rem;
+    }
+
+    &--hidden {
+        @include mobile-only {
+            display: none;
+        }
+
+    }
+}

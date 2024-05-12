@@ -44,5 +44,4 @@ async function deleteUser(id) {
     doesUserExist(userSnapshot);
     await deleteDoc(userRef);
 }
-
 export {getUsers, getUserById, addUser, updateUser, deleteUser};

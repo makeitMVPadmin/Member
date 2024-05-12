@@ -1,0 +1,142 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.overlay{
+    background-color: rgba(49, 49, 49, 0.8);
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .email-modal{
+        border: $color-mvp-black solid 2px;
+        background-color: $color-mvp-pale-blue;
+        padding: 24px;
+        z-index: 10;
+        max-width: 568px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border-radius: 8px;
+        
+        &__title{
+            @extend .subheader;
+        }
+        .send-info{
+            display: flex;
+            justify-content: flex-start;
+            gap: 1px;
+
+            &__email-header{
+                // flex-shrink: 1;
+                max-width: 30px;
+                padding-top: 4px;
+                @extend .body-copy;
+                font-size: 24px;
+                margin-right: 4px;
+            }
+            // <FilterSummary /> goes here in the JSX
+            &__close-button{
+                flex-shrink: 1;
+                min-width: 64px;
+                @extend .body-copy;
+                color: $color-mvp-white;
+                border-radius: 4px;
+                border: 2px solid black;
+                background-color: $color-mvp-dark-blue;
+                letter-spacing: 0.5px;
+                max-height: 34px;
+                // justi;
+
+                @include tablet-plus{
+                    max-height: 36px;
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    background-color: $color-mvp-white;
+                    color: $color-mvp-dark-blue;
+                }
+            }
+        }
+
+        .text-area{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            &__subject-field{
+                border: 2px solid $color-mvp-black;
+                border-radius: 4px;
+                padding: 4px 0 0 10px;
+                @extend .body-copy;
+                height: 36px;
+                &::placeholder{
+                    color: rgba($color-mvp-black, 0.35)
+                }
+
+                &:focus{
+                    outline: transparent;
+                }
+            }
+            &__message-field{
+                border: 2px solid $color-mvp-black;
+                border-radius: 4px;
+                padding: 10px 0 0 10px;
+                @extend .body-copy;
+                height: 36px;
+                min-height: 128px;
+
+                &::placeholder{
+                    color: rgba($color-mvp-black, 0.35)
+                }
+
+                &:focus{
+                    outline: transparent;
+                }
+            }
+
+            &__submit-container{
+                display: flex;
+                
+                justify-content: space-between;
+                align-items: center;
+                .send-error{
+                    color: red;
+                }
+                .send-button{
+                    position: relative;
+                    display: flex;
+                    min-width: 140px;
+                    padding: 8px;
+                    border: 2px solid $color-mvp-black;
+                    border-radius: 8px;
+                    background-color: $color-mvp-yellow;
+                    align-self: flex-end;
+                    display: flex;
+                    justify-content: center;
+                    gap: 8px;
+                    max-height: 48px;
+                    @extend .body-copy;
+
+                    &:hover{
+                        cursor: pointer;
+                        background-color: $color-mvp-black;
+                        color: $color-mvp-yellow;
+
+                        & .email-icon {
+                            filter: invert(89%) sepia(32%) saturate(1107%) hue-rotate(336deg) brightness(101%) contrast(102%);
+                        }
+                    }
+                }
+            }            
+        }
+    }
+}

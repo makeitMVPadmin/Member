@@ -1,14 +1,171 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./typography" as *;
+
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+//   font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
   text-decoration: none;
 }
 
-html,
 body {
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.page-header {
+  font-size: 24px;
+  line-height: 1.375rem;
+  font-family: "Corben", Arial, sans-serif;
+  font-weight: 700;
+
+  @include tablet-plus {
+    font-size: 33px;
+    line-height: 1.5rem;
+    font-family: "Corben", Arial, sans-serif;
+    font-weight: 700;
+  }
+}
+
+.subheader {
+  font-size: 14px;
+  line-height: 1.375rem;
+  font-family: "Corben", Arial, sans-serif;
+  font-weight: 700;
+
+  @include tablet-plus {
+    font-size: 18px;
+    line-height: 1.5rem;
+    font-family: "Corben", Arial, sans-serif;
+    font-weight: 700;
+  }
+}
+
+.body-copy {
+  font-size: 14px;
+  line-height: 1.375rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 700;
+
+  @include tablet-plus {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: "Gilroy", Arial, sans-serif;
+    font-weight: 700;
+  }
+}
+
+.buttons-copy {
+  font-size: 14px;
+  line-height: 1.375rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
+
+  @include tablet-plus {
+    font-size: 16px;
+    line-height: 1.5rem;
+    font-family: "Gilroy", Arial, sans-serif;
+    font-weight: 800;
+  }
+}
+
+input {
+  font-size: 14px;
+  line-height: 1.375rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
+  padding: 0.625rem 0.75rem;
+
+  @include tablet-plus {
+    font-size: 16px;
+    line-height: 1.5rem;
+    font-family: "Gilroy", Arial, sans-serif;
+    font-weight: 800;
+  }
+
+  &::placeholder {
+    color: #505050;
+  }
+
+  &.search-bar {
+    background-color: $color-mvp-pale-blue;
+    border: 1px solid $color-mvp-black;
+    border-radius: 4px;
+    padding-left: 2.5rem;
+  }
+
+  &[type="checkbox"] {
+    width: 20px;
+    accent-color:$color-mvp-pale-blue;
+    cursor: pointer;
+  }
+}
+
+.search-bar__container {
+  position: relative;
+  width: fit-content;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+
+.button {
+  font-size: 14px;
+  line-height: 1.375rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
+  position: relative;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+
+  
+  &--action {
+    border: 2px solid $color-mvp-black;
+    border-radius: 8px;
+    background-color: $color-mvp-yellow;
+    align-self: flex-end;
+    gap: 8px;
+    min-width: 90px;
+    width: 90px;
+    height: 40px;
+      
+      @include tablet-plus {
+      font-size: 16px;
+      line-height: 1.5rem;
+      font-family: "Gilroy", Arial, sans-serif;
+      font-weight: 800;
+    }
+  }
+
+  &--reset {
+    background-color: $color-mvp-black;
+    border: 1px solid #FFF;
+    align-self: flex-end;
+    color: white;
+    border-radius: 0.25rem;
+    width: 160px;
+    min-width: 100px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+    &--reset:hover {
+        background-color: $color-mvp-yellow;
+        color: $color-mvp-black;
+    }
+}
+
+.capitalize-first {
+  text-transform: capitalize;
 }
