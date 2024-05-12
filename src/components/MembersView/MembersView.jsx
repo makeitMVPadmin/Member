@@ -1,6 +1,6 @@
 import './MembersView.scss';
 import {useEffect, useState} from "react";
-// import {getUsers} from "../../functions/users";
+import {getUsers} from "../../functions/users";
 import EmailModal from '../EmailModal/EmailModal';
 import MembersList from '../MembersList/MembersList';
 import SearchBar from '../SearchBar/SearchBar';
@@ -18,51 +18,51 @@ export default function MembersView() {
     const [loading, setLoading] = useState(true);
 
     // START OF MOCK USERS FUNCTIONALITY
-    const numOfMockedUsers = 1000;
-    const mockFirstNames = [
-        'John', 'Jane', 'Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Heidi', 'Ivy', 'Jack', 'Karl', 'Liam', 'Mia', 'Nina', 'Oscar', 'Pam', 'Quinn', 'Ruth', 'Sam', 'Tina', 'Uma', 'Vic', 'Will', 'Xena', 'Yara', 'Zara'
-    ]
-    const mockLastNames = [
-        'Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark', 'Rodriguez',
-    ]
+    // const numOfMockedUsers = 1000;
+    // const mockFirstNames = [
+    //     'John', 'Jane', 'Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Heidi', 'Ivy', 'Jack', 'Karl', 'Liam', 'Mia', 'Nina', 'Oscar', 'Pam', 'Quinn', 'Ruth', 'Sam', 'Tina', 'Uma', 'Vic', 'Will', 'Xena', 'Yara', 'Zara'
+    // ]
+    // const mockLastNames = [
+    //     'Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark', 'Rodriguez',
+    // ]
     const mockRoles = ['Software Development', 'Data Analytics', 'Solution Architect', 'Web Design', 'Database Administration', 'Data Engineering', 'Other'];
     const mockLocations = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'NT', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
     const mockInterests = ['Development', 'Design', 'Data', 'Management', 'Other'];
 
-    useEffect(() => {
-        const mockUsers = [];
-        for (let i = 0; i < numOfMockedUsers; i++) {
-            const firstNamesRandomIndex = Math.floor(Math.random() * mockFirstNames.length);
-            const lastNamesRandomIndex = Math.floor(Math.random() * mockLastNames.length);
-            mockUsers.push({
-                id: i,
-                firstName: mockFirstNames[firstNamesRandomIndex],
-                lastName: mockLastNames[lastNamesRandomIndex],
-                email: `${mockFirstNames[firstNamesRandomIndex].toLowerCase()}${mockLastNames[lastNamesRandomIndex][0].toLowerCase()}${Math.floor(Math.random() * 1000)}@example.com`,
-                discipline: mockRoles[Math.floor(Math.random() * mockRoles.length)],
-                locationCity: mockLocations[Math.floor(Math.random() * mockLocations.length)],
-                interest: mockInterests[Math.floor(Math.random() * mockInterests.length)],
-                lastActive: getRandomDate(),
-                birthday: getRandomDate(),
-            });
-        }
-        setUsers(mockUsers);
-        setFilteredUsers(mockUsers);
-        setSearchedUsers(mockUsers)
-        setLoading(false);
-    }, []);
+    // useEffect(() => {
+    //     const mockUsers = [];
+    //     for (let i = 0; i < numOfMockedUsers; i++) {
+    //         const firstNamesRandomIndex = Math.floor(Math.random() * mockFirstNames.length);
+    //         const lastNamesRandomIndex = Math.floor(Math.random() * mockLastNames.length);
+    //         mockUsers.push({
+    //             id: i,
+    //             firstName: mockFirstNames[firstNamesRandomIndex],
+    //             lastName: mockLastNames[lastNamesRandomIndex],
+    //             email: `${mockFirstNames[firstNamesRandomIndex].toLowerCase()}${mockLastNames[lastNamesRandomIndex][0].toLowerCase()}${Math.floor(Math.random() * 1000)}@example.com`,
+    //             discipline: mockRoles[Math.floor(Math.random() * mockRoles.length)],
+    //             locationCity: mockLocations[Math.floor(Math.random() * mockLocations.length)],
+    //             interest: mockInterests[Math.floor(Math.random() * mockInterests.length)],
+    //             lastActive: getRandomDate(),
+    //             birthday: getRandomDate(),
+    //         });
+    //     }
+    //     setUsers(mockUsers);
+    //     setFilteredUsers(mockUsers);
+    //     setSearchedUsers(mockUsers)
+    //     setLoading(false);
+    // }, []);
     // END OF MOCK USERS FUNCTIONALITY
 
-    // useEffect(() => {
-    //     const fetchUsers = async () => {
-    //         const fetchedUsers = await getUsers();
-    //         setUsers(fetchedUsers);
-    //         setFilteredUsers(fetchedUsers);
-    //         setSearchedUsers(mockUsers)
-    //         setLoading(false);
-    //     };
-    //     fetchUsers();
-    // }, []);
+    useEffect(() => {
+        const fetchUsers = async () => {
+            const fetchedUsers = await getUsers();
+            setUsers(fetchedUsers);
+            setFilteredUsers(fetchedUsers);
+            setSearchedUsers(fetchedUsers)
+            setLoading(false);
+        };
+        fetchUsers();
+    }, []);
 
     // TODO: Consider adding useMemo or useCallback to filterUsers and searchForUsers to memoize their filters.
     const [filteredUsers, setFilteredUsers] = useState([]);
